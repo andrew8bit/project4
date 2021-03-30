@@ -38,10 +38,10 @@
             {% if user.is_authenticated %}
             <li><a href="/">Item1</a></li>
             <li><a href="/">Item2</a></li>
-            <li><a href="">Log out</a></li>
+            <li><a href="{% url 'logout' %}">Log out</a></li>
             {% else %}
             <li><a href="{% url 'login' %}">Log in</a></li>
-            <li><a href="{% url 'sign_up' %}">Sign Up</a></li>
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
             {% endif %}
           </ul>
         </div>

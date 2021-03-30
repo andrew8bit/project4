@@ -3,7 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormVi
 
 from django.http import HttpResponse, HttpResponseRedirect
 # bring in some things to make auth easier 
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.forms import UserCreationForm
 # bring in decorator
 from django.contrib.auth.decorators import login_required
@@ -14,7 +14,7 @@ def index(request):
     return render(request, 'index.html')
 
 # SIGNUP 
-def sign_up(request): 
+def signup(request): 
   error_message= ''
   if request.method == 'POST':
     form = UserCreationForm(request.POST)
@@ -31,3 +31,6 @@ def sign_up(request):
     'form': form, 
     'error_message': error_message
   })
+
+def logout_view(request):
+    logout(request)
