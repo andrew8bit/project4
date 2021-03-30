@@ -1,3 +1,25 @@
-body {
+html, body {
+  height: 100%;
   margin: 0;
+}
+
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+
+.navbar-main {
+  background-color: #00000096;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  height: 56px;
+  line-height: 56px;
+}
+
+.nav-link {
+  color: white;
 }

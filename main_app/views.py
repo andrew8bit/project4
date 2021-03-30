@@ -32,5 +32,6 @@ def signup(request):
     'error_message': error_message
   })
 
+
 def logout_view(request):
     logout(request)
