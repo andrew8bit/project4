@@ -23,7 +23,27 @@
     <header class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
-         
+          <ul>
+            <li>
+              <a href="/" class="left brand-logo"
+                >Project4</a
+              >
+            </li>
+          </ul>
+          <a href="#" class="right sidenav-trigger" data-target="mobile-demo"
+            ><i class="material-icons">menu</i></a
+          >
+          <ul class="right hide-on-med-and-down">
+            <li><a href="/">About</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="/">Item1</a></li>
+            <li><a href="/">Item2</a></li>
+            <li><a href="">Log out</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Log in</a></li>
+            <li><a href="{% url 'sign_up' %}">Sign Up</a></li>
+            {% endif %}
+          </ul>
         </div>
       </nav>
     </header>
