@@ -21,7 +21,7 @@
     overflow: hidden;
     margin-left: auto;
     margin-right: auto;
-    background:url(http://hop.ie/balls/images/world-map-one-color.png);
+    background:url('./images/greenoutlinesearth.png');
     background-size:cover;
     border:2px solid rgba(99, 255, 107, 0.397) ;
     border-radius:50%;
