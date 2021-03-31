@@ -11,8 +11,8 @@ p {
 }
 
 .navbar-main {
-  z-index: 5;
-  background-color: #393e46;
+  z-index: 3;
+  background-color: #000000d2;
   position: sticky;
   top:0;
   height: 100%;
@@ -20,6 +20,7 @@ p {
   height: 100px;
   line-height: 56px;
   transition: all 0.3s ease-in;
+  padding-left: 3em;
 }
 
 .nav-link {
