@@ -71,3 +71,17 @@
 
 }
 
+/**************************** Homepage Page 2 styles **************************************/
+
+.donation_description {
+
+}
+
+.pg2 {
+    background-color: #393e46;
+    height: 100%;
+    background-image: url('./images/hands.png');
+    size: 100%;
+    background-position: top;
+
+} 

@@ -45,10 +45,24 @@
         {% else %}
 
         <li class="nav-item ">
-          <a class="nav-a" href="{% url 'login' %}">Log in</a>
+                        <button
+              class="nav-a nav-btn"
+      type="button"
+      data-bs-toggle="modal"
+      data-bs-target="#loginModal"
+    >
+          Login
+          </button>
         </li>
         <li class="nav-item ">
-          <a class="nav-a" href="{% url 'signup' %}">Sign Up</a>
+              <button
+              class="nav-a nav-btn"
+      type="button"
+      data-bs-toggle="modal"
+      data-bs-target="#signupModal"
+    >
+          Sign Up
+          </button>
         </li>
         <li class="nav-item " >
           <a class="nav-a" href="/"> Support </a>
@@ -73,7 +87,108 @@
   </header>
 
   <body>
-    {% block content %} {% endblock %}
+    {% block content %} 
+
+    {% endblock %}
+
+    <!-- *************************** Signup Modal **************************** -->
+<div
+  class="modal fade"
+  id="signupModal"
+  tabindex="-1"
+  aria-labelledby="signupModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content modal-custom">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModalLabel">Sign Up Now</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="{% url 'signup' %}">
+
+        <!-- NOT A DRY WAY TO GRAB FORM DATA - GOING TO REFACTOR WHEN WE MAKE CUSTOM MODELS -->
+          {% csrf_token %} 
+          
+          <div class="form-label">
+          {{ form.username.label }}:
+          {{ form.username}}
+          </div>
+          <br />
+         <div class="form-label">
+          {{ form.password1.label}}:
+          {{ form.password1 }}
+            </div>
+          <br />
+         <div class="form-label">
+          {{ form.password2.label }}:
+          {{ form.password2}}
+            </div>
+        <br />
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="signup-btn" value="signup"> Sign up Now </button>
+        <input type="hidden" name="next" value="{{ next }}" />
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+    <!-- *************************** Login Modal **************************** -->
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content modal-custom">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login Now</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="{% url 'login' %}">
+
+        <!-- NOT A DRY WAY TO GRAB FORM DATA - GOING TO REFACTOR WHEN WE MAKE CUSTOM MODELS -->
+
+          {% csrf_token %} 
+          
+          <div class="form-label">
+          {{ login_form.username.label }}:
+          {{ login_form.username}}
+          </div>
+          <br />
+         <div class="login_form-label">
+          {{ login_form.password.label}}:
+          {{ login_form.password }}
+            </div>
+        <br />
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="signup-btn" value="login"> Login </button>
+        <input type="hidden" name="next" value="{{ next }}" />
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
       integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"

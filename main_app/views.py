@@ -4,7 +4,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormVi
 from django.http import HttpResponse, HttpResponseRedirect
 # bring in some things to make auth easier 
 from django.contrib.auth import login, logout
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 # bring in decorator
 from django.contrib.auth.decorators import login_required
 
@@ -39,14 +39,43 @@ def index(request):
       # ok user created log them in
         login(request, user)
         return redirect('index')
+      
     else:
       error_message='That was a no go. Invalid signup'
+    
+    login_form = AuthenticationForm
 
+    print(login_form)
     form = UserCreationForm()
     return render(request, 'index.html', {
+      'login_form': login_form,
       'form': form,
       'error_message': error_message
     })
 
 def logout_view(request):
     logout(request)
+
+def donation_view(request):
+    error_message= ''
+    if request.method == 'POST':
+      form = UserCreationForm(request.POST)
+      if form.is_valid():
+        user = form.save()
+      # ok user created log them in
+        login(request, user)
+        return redirect('index')
+      
+    else:
+      error_message='That was a no go. Invalid signup'
+    
+    login_form = AuthenticationForm
+
+    print(login_form)
+    form = UserCreationForm()
+    return render(request, 'donation.html', {
+      'login_form': login_form,
+      'form': form,
+      'error_message': error_message
+    })
+

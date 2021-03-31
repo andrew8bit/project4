@@ -16,14 +16,33 @@ ul {
 
 /******************** NAVBAR STYLING ************************/
 
+nav button {
+  padding: 0;
+}
+.nav-btn {
+  border:none;
+  background-color: transparent;
+  padding-top:0px;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 1em;
+  color: #e4ffe8;
+  text-align: center;
+  padding: 14px 30px;
+  transition: all .3s ease-in-out;
+}
+
 .nav-header {
   padding-top: 1em;
+  padding-right: 2.5em;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: #0000005e;
-  z-index: 1;
+  background: #585858;
+  z-index: 3;
   border-bottom: 4px solid #323042;
   display: flex;
   flex-direction: row;
@@ -51,6 +70,9 @@ ul {
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 5px;
+      border:none;
+      background-color: transparent;
+      padding-top:0px;
 
       font-size: 0.7em;
       color: #e4ffe8;
@@ -87,7 +109,5 @@ ul {
   border: 1px solid rgb(41, 201, 41);
 
 }
-
-
 
 /****************************************/
