@@ -26,40 +26,47 @@
     <script defer src="{% static 'app.js' %}"></script>
     {% endcomment %}
   </head>
-  
+
   <header class="nav-header">
     <nav class="nav-main" role="navigation">
       <ul class="nav-ul">
-        <li><a class="nav-a" href="#">Link 1</a></li>
-        <li><a class="nav-a" href="#">Link 2</a></li>
-        <li><a class="nav-a" href="#">Link 3</a></li>
-        <li class="blackhat">
-          <a href="/"
-            ><div class="blackhat-container">
-              <img src="../static/images/blackhat.png" /></div
-          ></a>
-        </li>
-        <li><a class="nav-a" href="#">Link 4</a></li>
+
 
         {% if user.is_authenticated %}
         <li class="nav-item active">
-          <a class="nav-a" href="/">Item1</a>
+          <a class="nav-a" href="/">Profile</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-a" href="/">Item2</a>
+          <a class="nav-a" href="/">Bounties</a>
         </li>
         <li class="nav-item active">
           <a class="nav-a" href="{% url 'logout' %}">Log out</a>
         </li>
         {% else %}
 
-        <li class="nav-item active">
+        <li class="nav-item ">
           <a class="nav-a" href="{% url 'login' %}">Log in</a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item ">
           <a class="nav-a" href="{% url 'signup' %}">Sign Up</a>
         </li>
+        <li class="nav-item " >
+          <a class="nav-a" href="/"> Support </a>
+        </li>
+
         {% endif %}
+
+        <li class="blackhat">
+          <a href="/"
+            ><div class="blackhat-container">
+              <img src="../static/images/blackhat.png" /></div
+          ></a>
+        </li>
+
+
+                <li><a class="nav-a" href="#">About Us</a></li>
+        <li><a class="nav-a" href="#">Blog</a></li>
+        <li><a class="nav-a" href="#">Shop</a></li>
 
       </ul>
     </nav>
