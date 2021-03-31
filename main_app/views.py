@@ -10,9 +10,6 @@ from django.contrib.auth.decorators import login_required
 
 from django.forms.models import model_to_dict
 
-def index(request):
-    return render(request, 'index.html')
-
 # SIGNUP 
 def signup(request): 
   error_message= ''
@@ -31,6 +28,25 @@ def signup(request):
     'form': form, 
     'error_message': error_message
   })
+
+def index(request):
+  # WE ARE GOING TO CHANGE THIS WHEN WE CREATE OUR OWN USER MODEL AND FORM 
+    error_message= ''
+    if request.method == 'POST':
+      form = UserCreationForm(request.POST)
+      if form.is_valid():
+        user = form.save()
+      # ok user created log them in
+        login(request, user)
+        return redirect('index')
+    else:
+      error_message='That was a no go. Invalid signup'
+
+    form = UserCreationForm()
+    return render(request, 'index.html', {
+      'form': form,
+      'error_message': error_message
+    })
 
 def logout_view(request):
     logout(request)

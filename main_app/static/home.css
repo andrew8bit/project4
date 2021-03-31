@@ -11,6 +11,27 @@
     font-family: 'Source Code Pro', monospace;
 }
 
+/*    The styles for the container for the button of pg1 are in ./typewriter.css      */ 
+
+.signup-btn {
+    margin-left: 5em;
+    height: 50px;
+    align-self: center;
+    font-weight: bolder;
+    color: white;
+    background-color: transparent;
+    border: 1px solid rgba(37, 255, 48, 0.74);
+    transition: all 0.3s ease-in;
+
+}
+
+.signup-btn:hover {
+    color:black;
+    background-color:rgba(37, 255, 48, 0.74);
+    border-radius: 1em;
+
+}
+
 /********************************* GLOBE SETTINGS  ********************************/
 
 #globe {
@@ -41,4 +62,12 @@
     100% { background-position: 1000px 0 }
   }
 
+/*************************************** MODAL STYLES ********************************/
+
+.modal-custom {
+    background-color: rgb(61, 61, 61);
+    color: white;
+    border: 1px solid rgb(135, 255, 135);
+
+}
 
