@@ -1,6 +1,7 @@
 html, body {
   height: 100%;
   margin: 0;
+
 }
 
 p {
@@ -11,11 +12,12 @@ p {
 }
 
 .navbar-main {
-  background-color: #00000096;
-  position: relative;
+  background-color: #393e46;
+  position: sticky;
+  top:0;
   height: 100%;
   width: 100%;
-  height: 56px;
+  height: 100px;
   line-height: 56px;
 }
 
