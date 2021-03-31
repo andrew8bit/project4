@@ -1,18 +1,20 @@
 /************************************* Type Writer Text Container ***************************************/
 
 .homepage-text-container-head {
-    margin-top: 5em;
+    margin-top: 10em;
     margin-left: 3em;
     display: flex;
 }
 
 .homepage-text-container-head h1{
-    color: white;
+    color: #e4ffe8;
+    text-transform: uppercase;
     font-size: 4em;
+
 }
 
 .homepage-text-container p{
-    color: white;
+    color: #ffffff;
     z-index: 2;
 
 }
