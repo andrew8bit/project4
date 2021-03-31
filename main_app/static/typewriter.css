@@ -3,10 +3,12 @@
 .homepage-text-container-head {
     margin-top: 5em;
     margin-left: 3em;
+    display: flex;
 }
 
 .homepage-text-container-head h1{
     color: white;
+    font-size: 4em;
 }
 
 .homepage-text-container p{
@@ -33,6 +35,8 @@
         font-size: 1.5em;
         white-space: nowrap;
         overflow: hidden;
+    
+
         -webkit-animation-fill-mode: forwards;
         animation-fill-mode: forwards;
       }
@@ -58,8 +62,8 @@
       .typewriter p:nth-child(3) {
         width: 100%; /* manually set width */
         opacity: 0;
-        -webkit-animation: type3 2s steps(20, end);
-        animation: type3 2s steps(20, end);
+        -webkit-animation: type3 2s steps(40, end);
+        animation: type3 2s steps(40, end);
         -webkit-animation-delay: 4s;
         animation-delay: 4s;
         -webkit-animation-fill-mode: forwards;
@@ -69,8 +73,8 @@
       .typewriter p:nth-child(4) {
         width: 520px; /* manually set width */
         opacity: 0;
-        -webkit-animation: type3 2s steps(20, end), blink .5s step-end infinite alternate; /* this goes on the last type writer animation */
-        animation: type3 2s steps(20, end), blink .5s step-end infinite alternate; /* this goes on the last type writer animation */
+        -webkit-animation: type4 2s steps(40, end), blink .5s step-end infinite alternate; /* this goes on the last type writer animation */
+        animation: type4 2s steps(40, end), blink .5s step-end infinite alternate; /* this goes on the last type writer animation */
         -webkit-animation-delay: 4s;
         animation-delay: 6s;
         -webkit-animation-fill-mode: forwards;
@@ -140,8 +144,12 @@
         1% {
           opacity: 1;
         }
+        99.9% {
+          border-right: .15em solid rgb(0, 255, 55);
+        }
         100% {
           opacity: 1;
+          border: none;
         }
       }
       
@@ -152,8 +160,12 @@
         1% {
           opacity: 1;
         }
+        99.9% {
+          border-right: .15em solid rgb(0, 255, 55);
+        }
         100% {
           opacity: 1;
+          border: none;
         }
       }
     
@@ -191,3 +203,22 @@
           border-color: tranparent;
         }
       }
+
+    /************************* This handles the app name **********************/
+    .typewriter h1 {
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        text-decoration: 1px underline;
+        text-decoration-color: rgb(0, 255, 55);
+        white-space: nowrap; /* Keeps the content on a single line */
+        letter-spacing: .05em; /* Adjust as needed */
+        animation: 
+          typing 1s steps(40, end),
+          blink-caret 2s step-end ;
+      }
+      
+      /* The typing effect */
+      @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+      }
+      
