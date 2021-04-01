@@ -37,8 +37,6 @@
         font-size: 1.5em;
         white-space: nowrap;
         overflow: hidden;
-    
-
         -webkit-animation-fill-mode: forwards;
         animation-fill-mode: forwards;
       }
