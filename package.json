@@ -1,1 +1,5 @@
-{}
+{
+  "dependencies": {
+    "stripe": "^8.141.0"
+  }
+}
