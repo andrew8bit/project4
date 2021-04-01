@@ -9,6 +9,13 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 
 from django.forms.models import model_to_dict
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+SECRET_KEY = os.getenv('SECRET_KEY')
+stripe_API_KEY = os.getenv('STRIPE_KEY')
+
 
 # SIGNUP PAGE
 def signup(request): 
@@ -85,3 +92,7 @@ def donation_view(request):
 def bounties_index(request):
   
   return render(request, 'bounties_index.html')
+
+def bounty_show(request):
+  
+  return render(request, 'bounty_show.html')
