@@ -22,6 +22,7 @@
     />
     <link rel="stylesheet" type="text/css" href="{% static 'global.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'homecarousel.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'bounties.css' %}" />
 
     {% comment %}
     <script defer src="{% static 'app.js' %}"></script>
@@ -38,7 +39,7 @@
           <a class="nav-a" href="/">Profile</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-a" href="/">Bounties</a>
+          <a class="nav-a" href="{% url 'bounties' %} ">Bounties</a>
         </li>
         <li class="nav-item active">
           <a class="nav-a" href="{% url 'logout' %}">Log out</a>

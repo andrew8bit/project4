@@ -9,6 +9,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 
 from django.forms.models import model_to_dict
+
 import stripe
 from django.urls import reverse
 import os
@@ -48,6 +49,7 @@ def signup(request):
     })
 
 
+# HOMEPAGE
 def index(request):
     # WE ARE GOING TO CHANGE THIS WHEN WE CREATE OUR OWN USER MODEL AND FORM
     error_message = ''
@@ -77,6 +79,7 @@ def logout_view(request):
     logout(request)
 
 
+
 def donation(request):
     return render(request, 'donation.html')
 
@@ -101,7 +104,16 @@ def charge(request):
         )
     return redirect(reverse('thankyou', args=[amount]))
 
+# BOUNTIES_INDEX 
+def bounties_index(request):
+  
+  return render(request, 'bounties_index.html')
+
+def bounty_show(request):
+  
+  return render(request, 'bounty_show.html')
 
 def thankyouMsg(request, args):
     amount = args
     return render(request, 'thankyou.html', {'amount': amount})
+
