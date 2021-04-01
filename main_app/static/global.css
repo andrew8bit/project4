@@ -110,4 +110,78 @@ nav button {
 
 }
 
-/****************************************/
+/*********************** FOOTER ***********************/
+
+.footer-container {
+  text-decoration: none;
+  color: #e4ffe8;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #393e46;
+  overflow-y: hidden;
+  transition: all 0.3s ease-in-out;
+  font-family: 'Source Code Pro', monospace;
+}
+.footer-container:hover {
+  color:white;
+  background-color: #585858;
+}
+
+.footer-container a {
+  color: white;
+  text-decoration: none;
+}
+.footer-container a:hover {
+  color: black;
+  text-decoration: underline overline #00d624;
+}
+
+.copywrite-container {
+  justify-content: center;
+  text-align: center;
+  color: #dddddd;
+  height: 50px;
+  width: 100%;
+  background-color:#323232;
+
+} 
+
+.copywrite-container p {
+  position: relative;
+  top: 50%;
+  font-size: 10px;
+}
+
+.about-project {
+  margin-top: 3em;
+  margin-left: 2em;
+  align-self: center;
+  width: 30%;
+  height: 100%;
+  top: 20%;
+  border-right: 1px solid #00d624;
+}
+.about-project p {
+  font-size: 14px;
+}
+
+.meet-the-team{
+  margin-top: 3em;
+  margin-left: 2em;
+  align-self: center;
+  width: 30%;
+  height: 100%;
+  top: 20%;
+  border-right: 1px solid #00d624;
+}
+
+.follow-project{
+  margin-top: 3em;
+  margin-left: 2em;
+  align-self: center;
+  width: 30%;
+  height: 100%;
+  top: 20%;
+}
