@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 
 from django.forms.models import model_to_dict
 
-# SIGNUP 
+# SIGNUP PAGE
 def signup(request): 
   error_message= ''
   if request.method == 'POST':
@@ -29,6 +29,7 @@ def signup(request):
     'error_message': error_message
   })
 
+# HOMEPAGE
 def index(request):
   # WE ARE GOING TO CHANGE THIS WHEN WE CREATE OUR OWN USER MODEL AND FORM 
     error_message= ''
@@ -56,6 +57,7 @@ def index(request):
 def logout_view(request):
     logout(request)
 
+# DONATION PAGE
 def donation_view(request):
     error_message= ''
     if request.method == 'POST':
@@ -79,3 +81,7 @@ def donation_view(request):
       'error_message': error_message
     })
 
+# BOUNTIES_INDEX 
+def bounties_index(request):
+  
+  return render(request, 'bounties_index.html')
