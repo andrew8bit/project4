@@ -1,44 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
 <style type="text/css">
-    .StripeElement {
-        box-sizing: border-box;
+  
 
-        height: 80px;
-
-        padding: 100px 12px;
-
-        border: 1px solid transparent;
-        border-radius: 4px;
-        background-color: white;
-
-        box-shadow: 0 1px 3px 0 #e6ebf1;
-        -webkit-transition: box-shadow 150ms ease;
-        transition: box-shadow 150ms ease;
-
+    .Donate {
+        padding: 200px 12px;
+        height: auto;
+        font-size:10px;
+        width: 50%;
+        position: relative;
+        display: block;
+        float:left;
+        height: auto;
+        position: relative;
+        z-index: 2;
+        margin: 3em;
+        background-color: rgba(0, 0, 0, 0.596);
+        height: 50%;    
     }
-
-    .Ana {
-        padding: 100px 12px;
-    }
-
-    .StripeElement--focus {
-        box-shadow: 0 1px 3px 0 #cfd7df;
-    }
-
-    .StripeElement--invalid {
-        border-color: #fa755a;
-    }
-
-    .StripeElement--webkit-autofill {
-        background-color: #fefde5 !important;
-    }
+    
 </style>
 
 
 <script src="https://js.stripe.com/v3/"></script>
 
-<div class="Ana">
+<div class="Donate">
     <form action="{%url 'charge' %}" method="post" id="payment-form">
         {% csrf_token %}
         <select required name="amount" id="amount">
