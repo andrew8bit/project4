@@ -81,6 +81,7 @@ nav button {
       transition: all .3s ease-in-out;
 }
 .nav-a:hover {
+          transition: all 0.3s ease-in-out;
           color: #ffffff;
           background: #00d624;
           box-shadow: 0px 4px 0px 0px #000000;
@@ -125,6 +126,7 @@ nav button {
   font-family: 'Source Code Pro', monospace;
 }
 .footer-container:hover {
+  transition: all 0.3s ease-in-out;
   color:white;
   background-color: #585858;
 }
