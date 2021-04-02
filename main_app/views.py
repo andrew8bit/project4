@@ -78,7 +78,7 @@ def index(request):
 
 def logout_view(request):
     logout(request)
-    
+
 
 def donation(request):
     return render(request, 'donation.html')
@@ -104,19 +104,39 @@ def charge(request):
         )
     return redirect(reverse('thankyou', args=[amount]))
 
-# BOUNTIES_INDEX 
+# BOUNTIES_INDEX
+
+
 def bounties_index(request):
-  
-  return render(request, 'bounties_index.html')
+
+    return render(request, 'bounties_index.html')
+
 
 def bounty_show(request):
-  
-  return render(request, 'bounty_show.html')
+
+    return render(request, 'bounty_show.html')
+
 
 def thankyouMsg(request, args):
     amount = args
     return render(request, 'thankyou.html', {'amount': amount})
 
+
+def hoodies(request):
+
+    return render(request, 'hoodie.html')
+
+
+def tshirt(request):
+
+    return render(request, 'tshirt.html')
+
+
+def accessories(request):
+
+    return render(request, 'accessories.html')
+
+
 def bounty_post(request):
 
-  return render(request, 'bounty_post.html')
+    return render(request, 'bounty_post.html')
