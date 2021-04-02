@@ -1,6 +1,8 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
+  background-color: #393e46;
 }
 
 p {
@@ -11,7 +13,7 @@ p {
 }
 
 ul {
-  padding:0;
+  padding: 0;
 }
 
 /******************** NAVBAR STYLING ************************/
@@ -20,9 +22,9 @@ nav button {
   padding: 0;
 }
 .nav-btn {
-  border:none;
+  border: none;
   background-color: transparent;
-  padding-top:0px;
+  padding-top: 0px;
   display: block;
   text-decoration: none;
   text-transform: uppercase;
@@ -31,7 +33,7 @@ nav button {
   color: #e4ffe8;
   text-align: center;
   padding: 14px 30px;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .nav-header {
@@ -51,7 +53,7 @@ nav button {
 }
 
 .nav-main {
-  width:100%;
+  width: 100%;
 }
 
 .nav-ul {
@@ -62,33 +64,33 @@ nav button {
   align-items: center;
 }
 .nav-main li {
-      display:block;
-  }
+  display: block;
+}
 
 .nav-a {
-      display: block;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 5px;
-      border:none;
-      background-color: transparent;
-      padding-top:0px;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  border: none;
+  background-color: transparent;
+  padding-top: 0px;
 
-      font-size: 0.7em;
-      color: #e4ffe8;
-      text-align: center;
-      padding: 14px 30px;
-      transition: all .3s ease-in-out;
+  font-size: 0.7em;
+  color: #e4ffe8;
+  text-align: center;
+  padding: 14px 30px;
+  transition: all 0.3s ease-in-out;
 }
 .nav-a:hover {
-          transition: all 0.3s ease-in-out;
-          color: #ffffff;
-          background: #00d624;
-          box-shadow: 0px 4px 0px 0px #000000;
-      }
+  transition: all 0.3s ease-in-out;
+  color: #ffffff;
+  background: #00d624;
+  box-shadow: 0px 4px 0px 0px #000000;
+}
 
 .blackhat {
-  display:block;
+  display: block;
   margin: 0 1em;
 }
 
@@ -105,15 +107,16 @@ nav button {
 }
 
 .blackhat-container:hover {
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   background-color: transparent;
   border: 1px solid rgb(41, 201, 41);
-
 }
 
 /*********************** FOOTER ***********************/
 
 .footer-container {
+  position: relative;
+  bottom: 0;
   text-decoration: none;
   color: #e4ffe8;
   width: 100%;
@@ -123,11 +126,11 @@ nav button {
   background-color: #393e46;
   overflow-y: hidden;
   transition: all 0.3s ease-in-out;
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
 }
 .footer-container:hover {
   transition: all 0.3s ease-in-out;
-  color:white;
+  color: white;
   background-color: #585858;
 }
 
@@ -146,9 +149,8 @@ nav button {
   color: #dddddd;
   height: 50px;
   width: 100%;
-  background-color:#323232;
-
-} 
+  background-color: #323232;
+}
 
 .copywrite-container p {
   position: relative;
@@ -169,7 +171,7 @@ nav button {
   font-size: 14px;
 }
 
-.meet-the-team{
+.meet-the-team {
   margin-top: 3em;
   margin-left: 2em;
   align-self: center;
@@ -179,7 +181,7 @@ nav button {
   border-right: 1px solid #00d624;
 }
 
-.follow-project{
+.follow-project {
   margin-top: 3em;
   margin-left: 2em;
   align-self: center;
