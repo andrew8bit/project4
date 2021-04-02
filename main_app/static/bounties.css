@@ -52,7 +52,7 @@
 
 .post-group {
     border: 2px solid green;
-    background: transparent;
+    /* background: black; */
     margin: 1em;
     height: 600px;
     max-height: 600px;
@@ -62,19 +62,33 @@
 }
 
 .bounty-add {
-    justify-content: center;
-    align-content: center;
-    align-self: center;
-    font-size: 2em;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    background-color:transparent;
     position: fixed;
-    right: 60px;
-    bottom: 50px;
+    right: 3em;
+    bottom: 3em;
+    width:60px;
+    height:60px;
+    border-radius:100%;
+    border: 1px solid green;
+    outline:none;
+    color:#FFF;
+    font-size:36px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: all .3s ease-in;  
 }
 
+.bounty-add:hover {
+    background-color: green;
+    border: 1px solid black;
+    transition: all .3s ease-in;  
+}
+
+
+.border-green {
+    border: 1px solid green;
+}
 .list-group-item {
+
     background: transparent;
     color: green;
 }
@@ -83,3 +97,6 @@
     background: green;
     color: white;
 }
+
+
+
