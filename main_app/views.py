@@ -14,6 +14,7 @@ import stripe
 from django.urls import reverse
 import os
 from django.conf import settings
+
 from dotenv import load_dotenv
 load_dotenv()
 SECRET_KEY = os.getenv('SECRET_KEY')
@@ -121,6 +122,21 @@ def thankyouMsg(request, args):
     return render(request, 'thankyou.html', {'amount': amount})
 
 
-def shop(request):
+def hoodies(request):
 
-    return render(request, 'shop.html')
+    return render(request, 'hoodie.html')
+
+
+def tshirt(request):
+
+    return render(request, 'tshirt.html')
+
+
+def accessories(request):
+
+    return render(request, 'accessories.html')
+
+
+def bounty_post(request):
+
+    return render(request, 'bounty_post.html')

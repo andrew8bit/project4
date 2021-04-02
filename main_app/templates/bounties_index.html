@@ -1,7 +1,10 @@
 {% extends 'base.html' %} 
+{% load static %}
 
 {% block content %}
+
 <div class='all-bounties-container'>
+
 <a href='/bounties/1'>
 <div class="card bounties-card" style="width: 18rem;">
   <img src="https://static.wikia.nocookie.net/villains/images/6/61/Unknown_Face_Of_The_Collector.jpg/revision/latest?cb=20171207211806" class="card-img-top" alt="...">
@@ -12,6 +15,7 @@
   </div>
 </div>
 </a>
+
 <a href='/'>
 <div class="card bounties-card" style="width: 18rem;">
   <img src="https://static.wikia.nocookie.net/villains/images/6/61/Unknown_Face_Of_The_Collector.jpg/revision/latest?cb=20171207211806" class="card-img-top" alt="...">
@@ -62,9 +66,6 @@
   </div>
 </div>
 </a>
-
-
-
 </div>
 
 {% endblock %}
