@@ -23,6 +23,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'global.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'homecarousel.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'bounties.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'donation.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'shop.css' %}" />
+
 
     {% comment %}
     <script defer src="{% static 'app.js' %}"></script>
@@ -82,7 +85,17 @@
 
                 <li><a class="nav-a" href="#">About Us</a></li>
         <li><a class="nav-a" href="#">Blog</a></li>
-        <li><a class="nav-a" href="#">Shop</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-a dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Shop
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="nav-a dropdown-item" href="#">Action</a></li>
+            <li><a class="nav-a dropdown-item" href="#">Another action</a></li>
+            <li><hr class="nav-a dropdown-divider"></li>
+            <li><a class="nav-a dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
 
       </ul>
     </nav>

@@ -1,4 +1,7 @@
-.all-bounties-container {
+.nav-item dropdown {
+  background-color: black;
+}
+.shop-container {
   width: 100%;
   height: fit-content;
   background-color: #393e46;
@@ -13,7 +16,7 @@
   word-break: keep-all;
 }
 
-.all-bounties-container a {
+.shop-container a {
   text-decoration: none;
   color: white;
 }
