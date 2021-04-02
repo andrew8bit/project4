@@ -4,16 +4,15 @@
   
   .aa{
       background-color:#393e46;
+
   }
 
     .Donate {
-        display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
+        min-height: 100%;
 
     display: block;
     width: 500px;
-    height: 300px;
+    
     border: 15px solid green;
     text-decoration: none;
     font-size: 1.25em;
@@ -40,10 +39,10 @@
    
 </style>
 
-<div class="Donate">
+
 <script class="aa" src="https://js.stripe.com/v3/"></script>
 
-
+<div class="Donate">
     <form action="{%url 'charge' %}" method="post" id="payment-form">
         {% csrf_token %}
         <select required name="amount" id="amount">
