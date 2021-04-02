@@ -1,44 +1,53 @@
 {% extends 'base.html' %}
 {% block content %}
 <style type="text/css">
-    .StripeElement {
-        box-sizing: border-box;
+  
+  .aa{
+      background-color:#393e46;
 
-        height: 80px;
+  }
 
-        padding: 100px 12px;
+    .Donate {
+        min-height: 100%;
 
-        border: 1px solid transparent;
-        border-radius: 4px;
-        background-color: white;
-
-        box-shadow: 0 1px 3px 0 #e6ebf1;
-        -webkit-transition: box-shadow 150ms ease;
-        transition: box-shadow 150ms ease;
-
+    display: block;
+    width: 500px;
+    
+    border: 15px solid green;
+    text-decoration: none;
+    font-size: 1.25em;
+    color: white;
+    background-color:black;
+    border: 1px solid rgba(37, 255, 48, 0.74);
+    position:relative;
+    top: 15%;
+    left: 2%;
+    color: black;
+    font-family: 'Source Code Pro', monospace;
+    opacity: 0.8;
     }
-
-    .Ana {
-        padding: 100px 12px;
+    #payment-form {
+    
+    color:white;
+    font-size: 20px;
     }
-
-    .StripeElement--focus {
-        box-shadow: 0 1px 3px 0 #cfd7df;
+    #amount{
+        color:white;
+        background-color: black;
+        opacity: 0.8;
     }
-
-    .StripeElement--invalid {
-        border-color: #fa755a;
+    .donateBtn {
+        color:white;
+        background-color: black;
+        opacity: 0.8;
     }
-
-    .StripeElement--webkit-autofill {
-        background-color: #fefde5 !important;
-    }
+   
 </style>
 
 
-<script src="https://js.stripe.com/v3/"></script>
+<script class="aa" src="https://js.stripe.com/v3/"></script>
 
-<div class="Ana">
+<div class="Donate">
     <form action="{%url 'charge' %}" method="post" id="payment-form">
         {% csrf_token %}
         <select required name="amount" id="amount">
@@ -49,17 +58,17 @@
             <option value="50">Donate $50</option>
             <option value="100">Donate $100</option>
         </select>
-        <input type="text" name="name" placeholder="Name">
+        <input type="text"  id="amount" name="name" placeholder="Name">
 
         <div class="form-row">
             <label for="card-element">
-                Credit or Debit card
+              
             </label>
             <div id="card-element">
             </div>
             <div id="card-errors" role="alert"></div>
         </div>
-        <button>Submit Donation</button>
+        <button class="donateBtn">Submit Donation</button>
     </form>
 </div>
 
