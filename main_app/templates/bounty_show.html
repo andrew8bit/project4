@@ -1,5 +1,5 @@
 {% extends 'base.html' %} 
-
+{ % load static % }
 {% block content %}
 
 <div class="all-bounties-container bounty-show">
@@ -15,7 +15,7 @@
     <ul class="list-group list-group">
     <li class="list-group-item">Status: Missing</li>
     <li class="list-group-item">Last Seen: Unknown</li>
-    <li class="list-group-item">Location: Unknwon</li>
+    <li class="list-group-item">Location: Unknown</li>
   </ul>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <hr />
@@ -24,9 +24,11 @@
 
 </div>
 
+<!-- POST RELATING TO THAT PERSON -->
+
 <div class="list-group post-group">
 
-  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+  <a href="/bounties/1/1" class="list-group-item list-group-item-action " aria-current="true">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">List group item heading</h5>
       <small>3 days ago</small>
@@ -34,7 +36,7 @@
     <p class="mb-1">Some placeholder content in a paragraph.</p>
     <small>And some small print.</small>
   </a>
-  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">List group item heading</h5>
       <small>3 days ago</small>
@@ -42,7 +44,7 @@
     <p class="mb-1">Some placeholder content in a paragraph.</p>
     <small>And some small print.</small>
   </a>
-  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">List group item heading</h5>
       <small>3 days ago</small>
@@ -50,7 +52,7 @@
     <p class="mb-1">Some placeholder content in a paragraph.</p>
     <small>And some small print.</small>
   </a>
-  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">List group item heading</h5>
       <small>3 days ago</small>
@@ -58,7 +60,7 @@
     <p class="mb-1">Some placeholder content in a paragraph.</p>
     <small>And some small print.</small>
   </a>
-  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">List group item heading</h5>
       <small>3 days ago</small>
@@ -66,7 +68,7 @@
     <p class="mb-1">Some placeholder content in a paragraph.</p>
     <small>And some small print.</small>
   </a>
-  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">List group item heading</h5>
       <small>3 days ago</small>
@@ -74,7 +76,7 @@
     <p class="mb-1">Some placeholder content in a paragraph.</p>
     <small>And some small print.</small>
   </a>
-  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">List group item heading</h5>
       <small>3 days ago</small>

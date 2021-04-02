@@ -27,6 +27,7 @@
     {% comment %}
     <script defer src="{% static 'app.js' %}"></script>
     {% endcomment %}
+
   </head>
 
   <header class="nav-header">
@@ -75,15 +76,25 @@
         <li class="blackhat">
           <a href="/"
             ><div class="blackhat-container">
-              <img src="../static/images/blackhat.png" /></div
+              <img src="{% static '/images/blackhat.png' %}"/></div
           ></a>
         </li>
-
-
-                <li><a class="nav-a" href="#">About Us</a></li>
+        <li><a class="nav-a" href="#">About Us</a></li>
         <li><a class="nav-a" href="#">Blog</a></li>
-        <li><a class="nav-a" href="#">Shop</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-a dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Shop
+          </a>
 
+          <ul class="dropdown-menu dropdown-ul" aria-labelledby="navbarDropdown">
+            <li><a class="nav-a dropdown-item dropdown-a" href="#">Sweatshirts</a></li>
+            <li><a class="nav-a dropdown-item dropdown-a" href="#">T-Shirts</a></li>
+            <hr class="nav-ul-hr" />
+            <li><a class="nav-a dropdown-item dropdown-a" href="#">Hats</a></li>
+            <li><a class="nav-a dropdown-item dropdown-a" href="#">Misc</a></li>
+          </ul>
+
+        </li>
       </ul>
     </nav>
   </header>
@@ -145,6 +156,7 @@
 </div>
 
     <!-- *************************** Login Modal **************************** -->
+
 <div
   class="modal fade"
   id="loginModal"

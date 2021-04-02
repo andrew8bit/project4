@@ -8,7 +8,10 @@ urlpatterns = [
     path('accounts/logout', views.logout_view, name='logout_view'),
 
     path('bounties/', views.bounties_index, name='bounties'),
+    # REPLACE #1 WITH ID 
     path('bounties/1', views.bounty_show, name='bounties_show'),
+    path('bounties/1/1', views.bounty_post, name='bounties_post'),
+
     path('donation/', views.donation, name="donation"),
     path('charge/', views.charge, name="charge"),
     path('thankyou/<str:args>/', views.thankyouMsg, name="thankyou"),
