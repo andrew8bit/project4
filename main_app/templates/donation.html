@@ -2,26 +2,43 @@
 {% block content %}
 <style type="text/css">
   
-*{
-    
-}
+  .aa{
+      background-color:#393e46;
+  }
+
     .Donate {
-        padding: 100px 12px;
-        background-color: #393e46;
-        display: block;
-        border-radius: 10px;
-		border: 1px solid transparent;
-        
+       
+    display: block;
+    width: 500px;
+    height: 300px;
+    border: 15px solid green;
+    text-decoration: none;
+    font-size: 1.25em;
+    color: white;
+    background-color:black;
+    border: 1px solid rgba(37, 255, 48, 0.74);
+    position:relative;
+    top: 15%;
+    left: 2%;
+    color: black;
+    font-family: 'Source Code Pro', monospace;
+    opacity: 0.8;
+    }
+    #payment-form {
+    
+    color:white;
+    font-size: 20px;
+    }
+    #amount{
+        color:white;
+        background-color: black;
+        opacity: 0.8;
     }
    
-   #payment-form {
-       color: tomato;
-       font-family: 'Source Code Pro', monospace;
-   }
 </style>
 
-
-<script class="Donate" src="https://js.stripe.com/v3/"></script>
+<div class="Donate">
+<script class="aa" src="https://js.stripe.com/v3/"></script>
 
 
     <form action="{%url 'charge' %}" method="post" id="payment-form">
@@ -34,11 +51,11 @@
             <option value="50">Donate $50</option>
             <option value="100">Donate $100</option>
         </select>
-        <input type="text" name="name" placeholder="Name">
+        <input type="text"  id="amount" name="name" placeholder="Name">
 
         <div class="form-row">
             <label for="card-element">
-                Credit or Debit card
+              
             </label>
             <div id="card-element">
             </div>
@@ -46,7 +63,7 @@
         </div>
         <button>Submit Donation</button>
     </form>
-
+</div>
 
 
 
