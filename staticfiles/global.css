@@ -1,6 +1,7 @@
 html, body {
   height: 100%;
   margin: 0;
+  background-color: #393e46;
 }
 
 p {
@@ -55,12 +56,13 @@ nav button {
 }
 
 .nav-ul {
-  list-style: none;
+  /* list-style: none; */
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
+
 .nav-main li {
       display:block;
   }
@@ -186,4 +188,18 @@ nav button {
   width: 30%;
   height: 100%;
   top: 20%;
+}
+
+.dropdown-ul {
+  background: rgba(0, 0, 0, 0.486);
+  max-width: 50px;
+  overflow: hidden;
+  text-align: center;
+}
+.dropdown-a {
+  background: transparent;
+}
+
+.nav-ul-hr {
+  border: 1px solid green;
 }
