@@ -2,29 +2,28 @@
 {% block content %}
 <style type="text/css">
   
-
-    .Donate {
-        padding: 200px 12px;
-        height: auto;
-        font-size:10px;
-        width: 50%;
-        position: relative;
-        display: block;
-        float:left;
-        height: auto;
-        position: relative;
-        z-index: 2;
-        margin: 3em;
-        background-color: rgba(0, 0, 0, 0.596);
-        height: 50%;    
-    }
+*{
     
+}
+    .Donate {
+        padding: 100px 12px;
+        background-color: #393e46;
+        display: block;
+        border-radius: 10px;
+		border: 1px solid transparent;
+        
+    }
+   
+   #payment-form {
+       color: tomato;
+       font-family: 'Source Code Pro', monospace;
+   }
 </style>
 
 
-<script src="https://js.stripe.com/v3/"></script>
+<script class="Donate" src="https://js.stripe.com/v3/"></script>
 
-<div class="Donate">
+
     <form action="{%url 'charge' %}" method="post" id="payment-form">
         {% csrf_token %}
         <select required name="amount" id="amount">
@@ -47,7 +46,7 @@
         </div>
         <button>Submit Donation</button>
     </form>
-</div>
+
 
 
 
