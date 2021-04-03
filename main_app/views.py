@@ -140,3 +140,18 @@ def accessories(request):
 def bounty_post(request):
 
     return render(request, 'bounty_post.html')
+
+
+def educate(request):
+
+    return render(request, 'educate.html')
+
+
+def recover(request):
+
+    return render(request, 'recover.html')
+
+
+def team(request):
+
+    return render(request, 'team.html')
