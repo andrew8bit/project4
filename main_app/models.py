@@ -15,7 +15,7 @@ class Bounty(models.Model):
         max_length=250, 
         default='https://static.wikia.nocookie.net/villains/images/6/61/Unknown_Face_Of_The_Collector.jpg/revision/latest?cb=20171207211806'
         )
-    last_seen = models.DateField(null=True)
+    last_seen = models.DateField(null=True, blank=True)
     location = models.CharField(max_length=50)
     status = models.CharField(
         max_length=1,
