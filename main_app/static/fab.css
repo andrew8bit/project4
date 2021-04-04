@@ -10,11 +10,11 @@
     box-shadow: 0 5px 5px rgba(0,0,0,0.1);
     z-index: 2;
     transition: all .3s ease-in-out;
-    
+
 }
 
 .action:hover {
-    background: green;
+    background: #00d624;
 }
 
 .laptop {
@@ -29,8 +29,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: red;
-    font-size: 2em;
+
     transition: all .3s ease-in-out
 }
 
@@ -64,15 +63,17 @@
     justify-content: flex-start;
     align-items: center;
     padding: 10px 0;
-    transition: 0.3s
+    transition: all .3s ease-in-out;
 }
 
 .action ul li:hover {
     font-weight: 600;
+    color:#00d624;
+    transition: all .3s ease-in-out;
 }
 
 .action ul li:not(:last-child){
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgb(14, 122, 0);
 }
 
 .action ul li img {
@@ -80,11 +81,15 @@
     opacity: 0.2;
 }
 .action ul li:hover img {
-    
     opacity: 0.8;
+}
+.action ul li:hover a {
+    color:#00d624;
+    transition: all .3s ease-in-out;
 }
 
 .fab-btn {
+    padding-left: 0;
     box-shadow: none;
     border: none;
     background: transparent;
@@ -94,4 +99,5 @@
 
 .fab-btn:hover {
     color:#00d624;
+    font-weight: 600;
 }

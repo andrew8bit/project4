@@ -4,13 +4,10 @@
 
 <div class="all-bounties-container bounty-show">
 
-{% comment %} <button type="img" src="'{% static '/images/blackhat.png' %}" class="bounty-add" data-bs-toggle="modal" data-bs-target="#signupModal">
-</button> {% endcomment %}
-
 <div class="action" onclick="actionToggle()">
   <span> <img class="laptop" src=" {% static '/images/laptop.png' %}"> </span>
   <ul>
-    <button type="button" class="fab-btn" data-bs-toggle="modal" data-bs-target="#signupModal"> Add a Post</button>
+    <li><button type="button" class="fab-btn" data-bs-toggle="modal" data-bs-target="#postModal"> Add a Post</button></li>
     <li><a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20missing%20person!" target="_blank">Share on Twitter</a></li>
     <li>Share</li>
     <li>Share</li>
@@ -24,17 +21,15 @@
 </script>
 
 <div class="card bounties-card" style="width: 18rem;">
-  <img src="https://static.wikia.nocookie.net/villains/images/6/61/Unknown_Face_Of_The_Collector.jpg/revision/latest?cb=20171207211806" class="card-img-top" alt="...">
+  <img src="{{bounty.img_url}}" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">Person Name</h5>
+    <h5 class="card-title">{{bounty.name}}</h5>
     <ul class="list-group list-group">
-    <li class="list-group-item">Status: Missing</li>
-    <li class="list-group-item">Last Seen: Unknown</li>
-    <li class="list-group-item">Location: Unknown</li>
+    <li class="list-group-item">Status: {{bounty.get_status_display}}</li>
+    <li class="list-group-item">Last Seen: {{bounty.last_seen}}</li>
+    <li class="list-group-item">Location: {{bounty.location}}</li>
   </ul>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <hr />
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text">{{bounty.story}}</p>
   </div>
 
 </div>
@@ -43,97 +38,63 @@
 
 <div class="list-group post-group">
 
-  <a href="/bounties/1/1" class="list-group-item list-group-item-action border-green" aria-current="true">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small>3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small>And some small print.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action border-green" aria-current="true">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small>3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small>And some small print.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action border-green" aria-current="true">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small>3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small>And some small print.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action border-green" aria-current="true">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small>3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small>And some small print.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action border-green" aria-current="true">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small>3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small>And some small print.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action border-green" aria-current="true">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small>3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small>And some small print.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small>3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small>And some small print.</small>
-  </a>
+{% for post in bounty.post_set.all %}
 
-  <a href="#" class="list-group-item list-group-item-action">
+  <a href="/bounties/{{bounty.id}}/{{post.id}}" class="list-group-item list-group-item-action border-green" aria-current="true">
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
+      <h5 class="mb-1">{{post.title}}</h5>
     </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small class="text-muted">And some muted small print.</small>
+    <div>
+    <small>{{post.user}}</small>
+    </div>
+    <div>
+    <small>{{post.date}}</small>
+    </div>
   </a>
+{% endfor %}
 
-  <a href="#" class="list-group-item list-group-item-action">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small class="text-muted">And some muted small print.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small class="text-muted">And some muted small print.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small class="text-muted">And some muted small print.</small>
-  </a>
 </div>
+
+<div
+  class="modal fade"
+  id="postModal"
+  tabindex="-1"
+  aria-labelledby="postModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content modal-custom">
+      <div class="modal-header">
+        <h5 class="modal-title" id="postModalLabel">Post Now</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="/bounties/{{bounty.id}}/">
+
+        <!-- NOT A DRY WAY TO GRAB FORM DATA - GOING TO REFACTOR WHEN WE MAKE CUSTOM MODELS -->
+
+          {% csrf_token %} 
+          
+          <div class="form-label">
+          {{ post_form.as_p }}:
+            </div>
+        <br />
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="signup-btn" value="post"> post </button>
+        <input type="hidden" name="next" value="{{ next }}" />
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 
 </div>
 
