@@ -25,7 +25,7 @@ stripe.api_key = os.getenv('STRIPE_API')
 #// ----------------------------
 
 def donation(request):
-    return render(request, 'donation.html')
+    return render(request, 'donation/donation.html')
 
 def charge(request):
 
@@ -49,11 +49,11 @@ def my_view(request):
         'api_key': settings.STRIPE_API
     }
     print(context["api_key"])
-    return render('donation.html', context)
+    return render('donation/donation.html', context)
 
 def thankyouMsg(request, args):
     amount = args
-    return render(request, 'thankyou.html', {'amount': amount}) 
+    return render(request, 'donation/thankyou.html', {'amount': amount}) 
 
 #// ----------------------------
 ### AUTHORIZATION
@@ -89,7 +89,7 @@ def bounties_index(request):
     bounties = Bounty.objects.all()
     return render(
         request,
-        'bounties_index.html',
+        'bounties/bounties_index.html',
         {
         'bounties': bounties
         }
@@ -105,12 +105,12 @@ def bounty_show(request, bounty_id):
         new_post.bounty = bounty
         new_post.save()
         
-        return render(request, 'bounty_show.html', {
+        return render(request, 'bounties/bounty_show.html', {
         'bounty': bounty,
         'post_form' : post_form
     })
 
-    return render(request, 'bounty_show.html', {
+    return render(request, 'bounties/bounty_show.html', {
         'bounty': bounty,
         'post_form' : post_form
     })
@@ -125,12 +125,12 @@ def bounty_post(request, bounty_id, post_id):
         new_comment.post = post
         new_comment.save()
 
-        return render(request, 'bounty_post.html', {
+        return render(request, 'bounties/bounty_post.html', {
         'post': post,
         'comment_form': comment_form
     })
 
-    return render(request, 'bounty_post.html', {
+    return render(request, 'bounties/bounty_post.html', {
         'post': post,
         'comment_form': comment_form
     })
@@ -141,17 +141,17 @@ def bounty_post(request, bounty_id, post_id):
 
 def hoodies(request):
 
-    return render(request, 'hoodie.html')
+    return render(request, 'shop/hoodie.html')
 
 
 def tshirt(request):
 
-    return render(request, 'tshirt.html')
+    return render(request, 'shop/tshirt.html')
 
 
 def accessories(request):
 
-    return render(request, 'accessories.html')
+    return render(request, 'shop/accessories.html')
 
 #// -------------------
 ### HOMEPAGE 
