@@ -243,14 +243,14 @@ nav button {
   border: 1px solid green;
 }
 
-.auth-container .card input.btn{
+.auth-container input.btn{
   background: transparent;
   width: 100%;
   border: 1px solid green;
   text-decoration: none;
 }
 
-.auth-container .card input.btn:hover{
+.auth-container input.btn:hover{
   background-color: rgb(41, 201, 41);
   color:white;
 }
@@ -271,4 +271,9 @@ nav button {
 .auth-container .btn-danger:hover{
   background: red;
   border: 1px solid black;
+}
+
+.alert {
+  margin-left: 3em;
+  
 }
