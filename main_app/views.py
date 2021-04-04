@@ -25,7 +25,7 @@ stripe.api_key = os.getenv('STRIPE_API')
 #// ----------------------------
 
 def donation(request):
-    return render(request, 'donation.html')
+    return render(request, 'donation/donation.html')
 
 def charge(request):
 
@@ -49,11 +49,11 @@ def my_view(request):
         'api_key': settings.STRIPE_API
     }
     print(context["api_key"])
-    return render('donation.html', context)
+    return render('donation/donation.html', context)
 
 def thankyouMsg(request, args):
     amount = args
-    return render(request, 'thankyou.html', {'amount': amount}) 
+    return render(request, 'donation/thankyou.html', {'amount': amount}) 
 
 #// ----------------------------
 ### AUTHORIZATION
@@ -81,6 +81,82 @@ def signup(request):
 def logout_view(request):
     logout(request)
 
+#// -------------------
+### BOUNTIES_PAGES
+#// -------------------
+@login_required
+def bounties_index(request):
+    bounties = Bounty.objects.all()
+    return render(
+        request,
+        'bounties/bounties_index.html',
+        {
+        'bounties': bounties
+        }
+    )
+
+@login_required
+def bounty_show(request, bounty_id):
+    bounty = Bounty.objects.get(id=bounty_id)
+    post_form = PostForm(request.POST or None)
+    if request.POST and post_form.is_valid():
+        new_post = post_form.save(commit=False)
+        new_post.user = request.user
+        new_post.bounty = bounty
+        new_post.save()
+        
+        return render(request, 'bounties/bounty_show.html', {
+        'bounty': bounty,
+        'post_form' : post_form
+    })
+
+    return render(request, 'bounties/bounty_show.html', {
+        'bounty': bounty,
+        'post_form' : post_form
+    })
+
+@login_required
+def bounty_post(request, bounty_id, post_id):
+    post = Post.objects.get(id=post_id)
+    comment_form = CommentForm(request.POST or None)
+    if request.POST and comment_form.is_valid():
+        new_comment = comment_form.save(commit=False)
+        new_comment.user = request.user
+        new_comment.post = post
+        new_comment.save()
+
+        return render(request, 'bounties/bounty_post.html', {
+        'post': post,
+        'comment_form': comment_form
+    })
+
+    return render(request, 'bounties/bounty_post.html', {
+        'post': post,
+        'comment_form': comment_form
+    })
+
+#// -------------------
+### SHOP RENDERING
+#// -------------------
+
+def hoodies(request):
+
+    return render(request, 'shop/hoodie.html')
+
+
+def tshirt(request):
+
+    return render(request, 'shop/tshirt.html')
+
+
+def accessories(request):
+
+    return render(request, 'shop/accessories.html')
+
+#// -------------------
+### HOMEPAGE 
+#// -------------------
+
 def homepage(request):
     error_message = ''
     if request.method == 'POST':
@@ -103,76 +179,4 @@ def homepage(request):
         'form': form,
         'error_message': error_message
     })
-
-#// -------------------
-### BOUNTIES_PAGES
-#// -------------------
-
-def bounties_index(request):
-    bounties = Bounty.objects.all()
-    return render(
-        request,
-        'bounties_index.html',
-        {
-        'bounties': bounties
-        }
-    )
-
-
-def bounty_show(request, bounty_id):
-    bounty = Bounty.objects.get(id=bounty_id)
-    post_form = PostForm(request.POST or None)
-    if request.POST and post_form.is_valid():
-        new_post = post_form.save(commit=False)
-        new_post.user = request.user
-        new_post.bounty = bounty
-        new_post.save()
-        
-        return render(request, 'bounty_show.html', {
-        'bounty': bounty,
-        'post_form' : post_form
-    })
-
-    return render(request, 'bounty_show.html', {
-        'bounty': bounty,
-        'post_form' : post_form
-    })
-
-def bounty_post(request, bounty_id, post_id):
-    post = Post.objects.get(id=post_id)
-    comment_form = CommentForm(request.POST or None)
-    if request.POST and comment_form.is_valid():
-        new_comment = comment_form.save(commit=False)
-        new_comment.user = request.user
-        new_comment.post = post
-        new_comment.save()
-
-        return render(request, 'bounty_post.html', {
-        'post': post,
-        'comment_form': comment_form
-    })
-
-    return render(request, 'bounty_post.html', {
-        'post': post,
-        'comment_form': comment_form
-    })
-
-#// -------------------
-### SHOP RENDERING
-#// -------------------
-
-def hoodies(request):
-
-    return render(request, 'hoodie.html')
-
-
-def tshirt(request):
-
-    return render(request, 'tshirt.html')
-
-
-def accessories(request):
-
-    return render(request, 'accessories.html')
-
 

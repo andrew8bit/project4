@@ -1,12 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Sign Up</h1>
+<div class="auth-container signup-pg">
+<h1> Sign Up Now</h1>
+<p><a href="/accounts/login">Already have an account?</a></p>
 <form method='post' action="{% url 'signup' %}">
     {% csrf_token %}
-    {{ form.as_p }}
+    <p>{{ form.username.label}}: {{ form.username}}</p>
+    <p>{{ form.username.help_text}}</p>
+
+    <p></p>
+    <p>{{ form.password1.label}}: {{ form.password1}}</p>
+    <p>{{ form.password1.help_text}}</p>
+
+
+    <p>Confirm: {{ form.password2}}</p>
+    <p>{{ form.password2.help_text}}</p>
+
     <input type="submit" class="btn" value="signup">
     <input type="hidden" name="next" value="{{ next }}">
 </form>
+</div>
 
 {% endblock %}
