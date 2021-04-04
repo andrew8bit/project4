@@ -45,7 +45,7 @@
 
         {% if user.is_authenticated %}
         <li class="nav-item active">
-          <a class="nav-a" href="/">Profile</a>
+          <a class="nav-a" href="{% url 'profile_update'%}">Profile</a>
         </li>
         <li class="nav-item active">
           <a class="nav-a" href="{% url 'bounties' %} ">Bounties</a>

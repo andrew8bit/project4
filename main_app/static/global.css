@@ -237,3 +237,7 @@ nav button {
 .auth-container ul{
   list-style: none;
 }
+
+.auth-container .card{
+  background: transparent;
+}

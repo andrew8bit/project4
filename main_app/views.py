@@ -2,13 +2,14 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.http import HttpResponse, HttpResponseRedirect
 # bring in some things to make auth easier
-from django.contrib.auth import login, logout
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login, logout, update_session_auth_hash
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm, password_validation
 # bring in decorator
 from django.contrib.auth.decorators import login_required
 from django.forms.models import model_to_dict
 from .models import Bounty, Post, Comment
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, UserForm, DeleteUserForm
 
 import stripe
 from django.urls import reverse
@@ -20,12 +21,14 @@ load_dotenv()
 SECRET_KEY = os.getenv('SECRET_KEY')
 stripe.api_key = os.getenv('STRIPE_API')
 
-#// ----------------------------
-### DONATION//STRIPE FUNCTIONS
-#// ----------------------------
+# // ----------------------------
+# DONATION//STRIPE FUNCTIONS
+# // ----------------------------
+
 
 def donation(request):
     return render(request, 'donation/donation.html')
+
 
 def charge(request):
 
@@ -44,6 +47,7 @@ def charge(request):
         )
     return redirect(reverse('thankyou', args=[amount]))
 
+
 def my_view(request):
     context = {
         'api_key': settings.STRIPE_API
@@ -51,15 +55,18 @@ def my_view(request):
     print(context["api_key"])
     return render('donation/donation.html', context)
 
+
 def thankyouMsg(request, args):
     amount = args
-    return render(request, 'donation/thankyou.html', {'amount': amount}) 
+    return render(request, 'donation/thankyou.html', {'amount': amount})
 
-#// ----------------------------
-### AUTHORIZATION
-#// ----------------------------
+# // ----------------------------
+# AUTHORIZATION
+# // ----------------------------
 
-## WE PASS THE FUNCTION FROM SIGNUP ANYWHERE WE WANT SIGNUP AND SIGNIN MODAL TO SHOW UP
+# WE PASS THE FUNCTION FROM SIGNUP ANYWHERE WE WANT SIGNUP AND SIGNIN MODAL TO SHOW UP
+
+
 def signup(request):
     error_message = ''
     if request.method == 'POST':
@@ -68,7 +75,7 @@ def signup(request):
             user = form.save()
             # ok user created log them in
             login(request, user)
-            return redirect('index')
+            return redirect('/')
         else:
             error_message = 'That was a no go. Invalid signup'
     # this will run after if it's not a POST or it was invalid
@@ -78,12 +85,48 @@ def signup(request):
         'error_message': error_message
     })
 
+
 def logout_view(request):
     logout(request)
 
-#// -------------------
-### BOUNTIES_PAGES
-#// -------------------
+
+def profile_update(request):
+    user = User.objects.get(id=request.user.id)
+    password_form = PasswordChangeForm(user=request.user, data=request.POST)
+    username_form = UserForm(initial=model_to_dict(user), data=request.POST)
+    delete_form = DeleteUserForm(data=request.POST)
+
+    if request.method == 'POST':
+        if username_form.is_valid():
+            user.username = request.POST.get('username')    
+            user.save()
+
+        if password_form.is_valid():
+            password_form.save()
+            update_session_auth_hash(request, password_form.user)
+        
+        if delete_form.is_valid():
+            confirmed = user.check_password(request.POST.get('password'))
+            if confirmed:
+                user.is_active = False
+                user.save()
+            if not confirmed:
+                print('PASSWORD WAS INCORRECT')
+        
+        return redirect('/')
+
+    return render(request, 'registration/profile.html', {
+        'password_form': password_form,
+        'username_form': username_form,
+        'delete_form': delete_form
+
+    })
+
+# // -------------------
+# BOUNTIES_PAGES
+# // -------------------
+
+
 @login_required
 def bounties_index(request):
     bounties = Bounty.objects.all()
@@ -91,9 +134,10 @@ def bounties_index(request):
         request,
         'bounties/bounties_index.html',
         {
-        'bounties': bounties
+            'bounties': bounties
         }
     )
+
 
 @login_required
 def bounty_show(request, bounty_id):
@@ -104,16 +148,17 @@ def bounty_show(request, bounty_id):
         new_post.user = request.user
         new_post.bounty = bounty
         new_post.save()
-        
+
         return render(request, 'bounties/bounty_show.html', {
-        'bounty': bounty,
-        'post_form' : post_form
-    })
+            'bounty': bounty,
+            'post_form': post_form
+        })
 
     return render(request, 'bounties/bounty_show.html', {
         'bounty': bounty,
-        'post_form' : post_form
+        'post_form': post_form
     })
+
 
 @login_required
 def bounty_post(request, bounty_id, post_id):
@@ -126,18 +171,19 @@ def bounty_post(request, bounty_id, post_id):
         new_comment.save()
 
         return render(request, 'bounties/bounty_post.html', {
-        'post': post,
-        'comment_form': comment_form
-    })
+            'post': post,
+            'comment_form': comment_form
+        })
 
     return render(request, 'bounties/bounty_post.html', {
         'post': post,
         'comment_form': comment_form
     })
 
-#// -------------------
-### SHOP RENDERING
-#// -------------------
+# // -------------------
+# SHOP RENDERING
+# // -------------------
+
 
 def hoodies(request):
 
@@ -153,9 +199,10 @@ def accessories(request):
 
     return render(request, 'shop/accessories.html')
 
-#// -------------------
-### HOMEPAGE 
-#// -------------------
+# // -------------------
+# HOMEPAGE
+# // -------------------
+
 
 def homepage(request):
     error_message = ''
@@ -179,4 +226,3 @@ def homepage(request):
         'form': form,
         'error_message': error_message
     })
-
