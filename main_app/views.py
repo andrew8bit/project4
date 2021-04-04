@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib import messages
 # bring in some things to make auth easier
 from django.contrib.auth import login, logout, update_session_auth_hash
 from django.contrib.auth.models import User
@@ -68,28 +69,32 @@ def thankyouMsg(request, args):
 
 
 def signup(request):
-    error_message = ''
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             # ok user created log them in
             login(request, user)
+            messages.success(request, 'Sign Up was successful, welcome!')
             return redirect('/')
         else:
-            error_message = 'That was a no go. Invalid signup'
+            messages.error(request, 'Unsuccessful Sign up')
     # this will run after if it's not a POST or it was invalid
     form = UserCreationForm()
     return render(request, 'registration/signup.html', {
         'form': form,
-        'error_message': error_message
     })
+
+def login_view(request):
+    messages.success(request, 'Login Successful')
+    login(request, user)
 
 
 def logout_view(request):
+    messages.success(request, 'Logout Successful')
     logout(request)
 
-
+@login_required
 def profile_update(request):
     user = User.objects.get(id=request.user.id)
     password_form = PasswordChangeForm(user=request.user, data=request.POST)
@@ -98,22 +103,25 @@ def profile_update(request):
 
     if request.method == 'POST':
         if username_form.is_valid():
-            user.username = request.POST.get('username')    
+            user.username = request.POST.get('username')
+            messages.success(request, f"Changed username to {user.username} ")    
             user.save()
 
         if password_form.is_valid():
             password_form.save()
+            messages.success(request, "Successfully Changed Password")
             update_session_auth_hash(request, password_form.user)
         
         if delete_form.is_valid():
             confirmed = user.check_password(request.POST.get('password'))
             if confirmed:
                 user.is_active = False
+                messages.error(request, "User has been deleted")
                 user.save()
             if not confirmed:
-                print('PASSWORD WAS INCORRECT')
+                messages.error(request, "Password was not confirmed")
         
-        return redirect('/')
+        return redirect('/accounts/profile/')
 
     return render(request, 'registration/profile.html', {
         'password_form': password_form,
@@ -138,7 +146,6 @@ def bounties_index(request):
         }
     )
 
-
 @login_required
 def bounty_show(request, bounty_id):
     bounty = Bounty.objects.get(id=bounty_id)
@@ -147,6 +154,7 @@ def bounty_show(request, bounty_id):
         new_post = post_form.save(commit=False)
         new_post.user = request.user
         new_post.bounty = bounty
+        messages.success(request, 'New Post Was Created!')
         new_post.save()
 
         return render(request, 'bounties/bounty_show.html', {
@@ -168,6 +176,7 @@ def bounty_post(request, bounty_id, post_id):
         new_comment = comment_form.save(commit=False)
         new_comment.user = request.user
         new_comment.post = post
+        messages.success(request, 'Comment was added!')
         new_comment.save()
 
         return render(request, 'bounties/bounty_post.html', {
@@ -205,7 +214,6 @@ def accessories(request):
 
 
 def homepage(request):
-    error_message = ''
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -213,9 +221,8 @@ def homepage(request):
         # ok user created log them in
             login(request, user)
             return redirect('homepage')
-
-    else:
-        error_message = 'That was a no go. Invalid signup'
+        else:
+            messages.success(request, 'Sign Up was successful, welcome!')
 
     login_form = AuthenticationForm
 
@@ -224,5 +231,4 @@ def homepage(request):
     return render(request, 'homepage.html', {
         'login_form': login_form,
         'form': form,
-        'error_message': error_message
     })
