@@ -240,4 +240,35 @@ nav button {
 
 .auth-container .card{
   background: transparent;
+  border: 1px solid green;
+}
+
+.auth-container .card input.btn{
+  background: transparent;
+  width: 100%;
+  border: 1px solid green;
+  text-decoration: none;
+}
+
+.auth-container .card input.btn:hover{
+  background-color: rgb(41, 201, 41);
+  color:white;
+}
+.auth-container .card input.btn-danger:hover{
+  background-color: red;
+
+}
+
+.auth-container .btn{
+  background: transparent;
+  border: 1px solid rgb(41, 201, 41);
+}
+.auth-container .btn:hover{
+  background-color: rgb(41, 201, 41);
+  border: 1px solid black;
+}
+
+.auth-container .btn-danger:hover{
+  background: red;
+  border: 1px solid black;
 }
