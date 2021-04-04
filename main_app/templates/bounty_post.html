@@ -1,9 +1,6 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 
-
-
 <div class="homepage-pg1 no-btm-border">
-
   <div class="post-show-page">
     <div class="post-show-container">
       <div class="main-post">
@@ -14,15 +11,13 @@
           </div>
           <small>{{post.user}}</small>
           <hr />
-          <p class="mb-1">
-            {{post.content}}
-          </p>
+          <p class="mb-1">{{post.content}}</p>
         </div>
       </div>
     </div>
     <div class="post-show-comments">
       <div class="list-group post-group">
-      {% for comment in post.comment_set.all %}
+        {% for comment in post.comment_set.all %}
         <a
           href="/bounties/{{post.bounty.id}}/{{post.id}}"
           class="list-group-item list-group-item-action"
@@ -33,7 +28,6 @@
             <small>{{comment.date}}</small>
           </div>
           <p class="mb-1">{{comment.content}}</p>
-          
         </a>
         {% endfor %}
       </div>
@@ -41,63 +35,77 @@
   </div>
 
   <div class="action" onclick="actionToggle()">
-  <span> <img class="laptop" src=" {% static '/images/laptop.png' %}"> </span>
-  <ul>
-    <li><button type="button" class="fab-btn" data-bs-toggle="modal" data-bs-target="#commentModal"> Add a Comment</button></li>
-    <li><a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20missing%20person!" target="_blank">Share on Twitter</a></li>
-    <li>Share</li>
-    <li>Share</li>
-  </ul>
-</div>
-<script type="text/javascript">
-  function actionToggle(){
-    const action = document.querySelector('.action');
-    action.classList.toggle('active')
-  }
-</script>
-
-<!-- *********************** COMMENT MODAL******************************* --> 
-<div
-  class="modal fade"
-  id="commentModal"
-  tabindex="-1"
-  aria-labelledby="commentModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content modal-custom">
-      <div class="modal-header">
-        <h5 class="modal-title" id="commentModalLabel">comment Now</h5>
+    <span>
+      <img class="laptop" src=" {% static '/images/laptop.png' %}" />
+    </span>
+    <ul>
+      <li>
         <button
           type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <form method="post" action="">
+          class="fab-btn"
+          data-bs-toggle="modal"
+          data-bs-target="#commentModal"
+        >
+          Add a Comment
+        </button>
+      </li>
+      <li>
+        <a
+          href="https://twitter.com/intent/tweet?text=Check%20out%20this%20missing%20person!"
+          target="_blank"
+          >Share on Twitter</a
+        >
+      </li>
+      <li>Share</li>
+      <li>Share</li>
+    </ul>
+  </div>
+  <script type="text/javascript">
+    function actionToggle() {
+      const action = document.querySelector(".action");
+      action.classList.toggle("active");
+    }
+  </script>
 
-        <!-- NOT A DRY WAY TO GRAB FORM DATA - GOING TO REFACTOR WHEN WE MAKE CUSTOM MODELS -->
+  <!-- *********************** COMMENT MODAL******************************* -->
+  <div
+    class="modal fade"
+    id="commentModal"
+    tabindex="-1"
+    aria-labelledby="commentModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content modal-custom">
+        <div class="modal-header">
+          <h5 class="modal-title" id="commentModalLabel">Add a comment</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form method="post" action="">
 
-          {% csrf_token %} 
-          
-          <div class="form-label">
-          {{ comment_form.as_p}}:
-        <br />
+            {% csrf_token %}
 
+            <div class="comment-input">{{ comment_form.content.as_textarea}}</div>
+            <br />
+
+            <div class="modal-footer">
+              <button type="submit" class="signup-btn" value="comment">
+                Submit
+              </button>
+              <input type="hidden" name="next" value="{{ next }}" />
+            </div>
+          </form>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="submit" class="signup-btn" value="comment"> comment </button>
-        <input type="hidden" name="next" value="{{ next }}" />
-      </div>
-      </form>
     </div>
   </div>
-</div>
-</div>
-<div class="spacer">
-</div>
+  <div class="spacer"></div>
 
   {% endblock %}
-
+</div>

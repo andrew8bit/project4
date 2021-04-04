@@ -81,33 +81,10 @@ def signup(request):
 def logout_view(request):
     logout(request)
 
-def homepage(request):
-    error_message = ''
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-        # ok user created log them in
-            login(request, user)
-            return redirect('homepage')
-
-    else:
-        error_message = 'That was a no go. Invalid signup'
-
-    login_form = AuthenticationForm
-
-    print(login_form)
-    form = UserCreationForm()
-    return render(request, 'homepage.html', {
-        'login_form': login_form,
-        'form': form,
-        'error_message': error_message
-    })
-
 #// -------------------
 ### BOUNTIES_PAGES
 #// -------------------
-
+@login_required
 def bounties_index(request):
     bounties = Bounty.objects.all()
     return render(
@@ -118,7 +95,7 @@ def bounties_index(request):
         }
     )
 
-
+@login_required
 def bounty_show(request, bounty_id):
     bounty = Bounty.objects.get(id=bounty_id)
     post_form = PostForm(request.POST or None)
@@ -138,6 +115,7 @@ def bounty_show(request, bounty_id):
         'post_form' : post_form
     })
 
+@login_required
 def bounty_post(request, bounty_id, post_id):
     post = Post.objects.get(id=post_id)
     comment_form = CommentForm(request.POST or None)
@@ -175,4 +153,30 @@ def accessories(request):
 
     return render(request, 'accessories.html')
 
+#// -------------------
+### HOMEPAGE 
+#// -------------------
+
+def homepage(request):
+    error_message = ''
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+        # ok user created log them in
+            login(request, user)
+            return redirect('homepage')
+
+    else:
+        error_message = 'That was a no go. Invalid signup'
+
+    login_form = AuthenticationForm
+
+    print(login_form)
+    form = UserCreationForm()
+    return render(request, 'homepage.html', {
+        'login_form': login_form,
+        'form': form,
+        'error_message': error_message
+    })
 

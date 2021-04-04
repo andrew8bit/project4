@@ -97,5 +97,13 @@
     color: white;
 }
 
+.comment-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-
+.comment-input textarea{
+    color: rgb(49, 255, 49);
+    background: black;
+}
