@@ -34,7 +34,6 @@ def donation(request):
 def charge(request):
 
     if request.method == 'POST':
-        print('Data:', request.POST)
         amount = int(request.POST['amount'])
         customer = stripe.Customer.create(
             name=request.POST['name'],
@@ -53,7 +52,6 @@ def my_view(request):
     context = {
         'api_key': settings.STRIPE_API
     }
-    print(context["api_key"])
     return render('donation/donation.html', context)
 
 
@@ -226,7 +224,6 @@ def homepage(request):
 
     login_form = AuthenticationForm
 
-    print(login_form)
     form = UserCreationForm()
     return render(request, 'homepage.html', {
         'login_form': login_form,
