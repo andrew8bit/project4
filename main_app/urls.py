@@ -19,7 +19,6 @@ urlpatterns = [
     path('tshirt/', views.tshirt, name="tshirt"),
     path('accessories/', views.accessories, name="accessories"),
     path('educate/', views.educate, name="educate"),
-    path('recover/', views.recover, name="recover"),
     path('reclaim/', views.reclaim, name="reclaim"),
     path('team/', views.team, name="team"),
 ]

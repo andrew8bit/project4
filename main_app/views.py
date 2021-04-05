@@ -218,10 +218,6 @@ def educate(request):
     return render(request, 'about/educate.html')
 
 
-def recover(request):
-
-    return render(request, 'about/recover.html')
-
 
 def team(request):
 
