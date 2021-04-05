@@ -1,79 +1,119 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <style type="text/css">
-  
-  .aa{
-      background-color:#393e46;
+    .aa {
+        background-color: #393e46;
 
-  }
+    }
+
+    .boxy {
+        grid-template-columns: 120px 120px 120px;
+        position: relative;
+        justify-content: space-evenly;
+        align-content: center;
+        display: flex;
+        direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10em;
+        min-height: 50%;
+        display: block;
+        width: 500px;
+        border: 15px solid green;
+        text-decoration: none;
+        font-size: 1.25em;
+        color: white;
+        background-color: black;
+        border: 1px solid rgba(37, 255, 48, 0.74);
+        top: 15%;
+        color: black;
+        font-family: 'Source Code Pro', monospace;
+        opacity: 0.5;
+
+    }
+
+    .whyDonate {
+        display: block;
+        width: 500px;
+        border: 15px solid green;
+        text-decoration: none;
+        font-size: 1.25em;
+        color: white;
+        background-color: black;
+        border: 1px solid rgba(37, 255, 48, 0.74);
+        color: black;
+        font-family: 'Source Code Pro', monospace;
+        opacity: 0.5;
+    }
 
     .Donate {
-       justify-content: center;
-       display: flex;
-   margin-bottom: 10em;
-    min-height: 50%;
-    display: block;
-    width: 500px;
-    border: 15px solid green;
-    text-decoration: none;
-    font-size: 1.25em;
-    color: white;
-    background-color:black;
-    border: 1px solid rgba(37, 255, 48, 0.74);
-    position:relative;
-    top: 15%;
-    left: 2%;
-    color: black;
-    font-family: 'Source Code Pro', monospace;
-    opacity: 0.8;
+        display: block;
+        width: 500px;
+        border: 15px solid green;
+        text-decoration: none;
+        font-size: 1.25em;
+        color: white;
+        background-color: black;
+        border: 1px solid rgba(37, 255, 48, 0.74);
+        color: black;
+        font-family: 'Source Code Pro', monospace;
+        opacity: 0.5;
     }
+
     #payment-form {
-    
-    color:white;
-    font-size: 20px;
+
+        color: white;
+        font-size: 20px;
     }
-    #amount{
-        color:white;
+
+    #amount {
+        color: white;
         background-color: black;
         opacity: 0.8;
     }
+
     .donateBtn {
-        color:white;
+        color: white;
         background-color: black;
         opacity: 0.8;
     }
-   
 </style>
 
 
 <script class="aa" src="https://js.stripe.com/v3/"></script>
 
-<div class="Donate">
-    <form action="{%url 'charge' %}" method="post" id="payment-form">
-        {% csrf_token %}
-        <select required name="amount" id="amount">
-            <option selected value="1">Donate $1</option>
-            <option value="5">Donate $5</option>
-            <option value="10">Donate $10</option>
-            <option value="20">Donate $20</option>
-            <option value="50">Donate $50</option>
-            <option value="100">Donate $100</option>
-        </select>
-        <input type="text"  id="amount" name="name" placeholder="Name">
+<div class="boxy">
+    <div class="Donate">
+        <form action="{%url 'charge' %}" method="post" id="payment-form">
+            {% csrf_token %}
+            <select required name="amount" id="amount">
+                <option selected value="1">Donate $1</option>
+                <option value="5">Donate $5</option>
+                <option value="10">Donate $10</option>
+                <option value="20">Donate $20</option>
+                <option value="50">Donate $50</option>
+                <option value="100">Donate $100</option>
+            </select>
+            <input type="text" id="amount" name="name" placeholder="Name">
 
-        <div class="form-row">
-            <label for="card-element">
-              
-            </label>
-            <div id="card-element">
+            <div class="form-row">
+                <label for="card-element">
+
+                </label>
+                <div id="card-element">
+                </div>
+                <div id="card-errors" role="alert"></div>
             </div>
-            <div id="card-errors" role="alert"></div>
-        </div>
-        <button class="donateBtn">Submit Donation</button>
-    </form>
+            <button class="donateBtn">Submit Donation</button>
+        </form>
+    </div>
+    <div class="whyDonate">
+        <p> Here at HIDDEN we are proudly non-profit, non-corporate and non-compromised.We rely on our donations to
+            carry out our mission of finding victims and those responsible. By donating, you are joining the fight to
+            end sex trafficking and contributing to a better tomorrow. Will you give today? </p>
+    </div>
 </div>
-
-
 
 <script>
 
@@ -143,6 +183,8 @@
 
         form.submit();
     }
+
+
 </script>
 
 
