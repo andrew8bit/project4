@@ -84,7 +84,6 @@ soupsieve==2.2.1
 sqlparse==0.4.1
 stripe==2.56.0
 terminado==0.9.3
-testpath==0.4.4
 traitlets==5.0.5
 urllib3==1.26.4
 wcwidth==0.2.5
