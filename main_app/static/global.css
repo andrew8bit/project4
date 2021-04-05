@@ -204,3 +204,76 @@ nav button {
 .nav-ul-hr {
   border: 1px solid green;
 }
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 10em;
+  color: white;
+}
+.auth-container h1{
+  color: #00d624;
+  padding-bottom: 1em;
+  text-decoration: underline;
+}
+.auth-container p{
+  padding: 1em 0;
+}
+.auth-container a{
+  color:rgb(41, 201, 41);
+  text-decoration: none;
+}
+
+.auth-container input.btn{
+  font-size: 1em;
+  padding: 1em 0;
+  color: white;
+  text-decoration: underline;
+}
+.auth-container input.btn:hover{
+  color:rgb(41, 201, 41)
+}
+.auth-container ul{
+  list-style: none;
+}
+
+.auth-container .card{
+  background: transparent;
+  border: 1px solid green;
+}
+
+.auth-container input.btn{
+  background: transparent;
+  width: 100%;
+  border: 1px solid green;
+  text-decoration: none;
+}
+
+.auth-container input.btn:hover{
+  background-color: rgb(41, 201, 41);
+  color:white;
+}
+.auth-container .card input.btn-danger:hover{
+  background-color: red;
+
+}
+
+.auth-container .btn{
+  background: transparent;
+  border: 1px solid rgb(41, 201, 41);
+}
+.auth-container .btn:hover{
+  background-color: rgb(41, 201, 41);
+  border: 1px solid black;
+}
+
+.auth-container .btn-danger:hover{
+  background: red;
+  border: 1px solid black;
+}
+
+.alert {
+  margin-left: 3em;
+  
+}

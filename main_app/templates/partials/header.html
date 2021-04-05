@@ -1,0 +1,186 @@
+{% load static %}
+
+<header class="nav-header">
+  <nav class="nav-main" role="navigation">
+    <ul class="nav-ul">
+      {% if user.is_authenticated %}
+      <li class="nav-item active">
+        <a class="nav-a" href="{% url 'profile_update'%}">Profile</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-a" href="{% url 'bounties' %} ">Bounties</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-a" href="{% url 'logout' %}">Log out</a>
+      </li>
+      {% else %}
+
+      <li class="nav-item">
+        <button
+          class="nav-a nav-btn"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#loginModal"
+        >
+          Login
+        </button>
+      </li>
+      <li class="nav-item">
+        <button
+          class="nav-a nav-btn"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#signupModal"
+        >
+          Sign Up
+        </button>
+      </li>
+      <li class="nav-item">
+        <a class="nav-a" href="donation/"> Support </a>
+      </li>
+
+      {% endif %}
+
+      <li class="blackhat">
+        <a href="/"
+          ><div class="blackhat-container">
+            <img src="{% static '/images/blackhat.png' %}" /></div
+        ></a>
+      </li>
+      <li><a class="nav-a" href="#">About Us</a></li>
+      <li><a class="nav-a" href="#">Blog</a></li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-a dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Shop
+        </a>
+
+        <ul class="dropdown-menu dropdown-ul" aria-labelledby="navbarDropdown">
+          <li>
+            <a class="nav-a dropdown-item dropdown-a" href="/hoodies"
+              >Hoodies</a
+            >
+          </li>
+          <li>
+            <a class="nav-a dropdown-item dropdown-a" href="/tshirt"
+              >T-Shirts</a
+            >
+          </li>
+          <hr class="nav-ul-hr" />
+          <li>
+            <a class="nav-a dropdown-item dropdown-a" href="/accessories"
+              >Accessories</a
+            >
+          </li>
+        </ul>
+      </li>
+    </ul>
+        {% include './messages.html' %}
+  </nav>
+</header>
+
+
+    <!-- *************************** Signup Modal **************************** -->
+<div
+  class="modal fade"
+  id="signupModal"
+  tabindex="-1"
+  aria-labelledby="signupModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content modal-custom">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModalLabel">Sign Up Now</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="{% url 'signup' %}">
+
+        <!-- NOT A DRY WAY TO GRAB FORM DATA - GOING TO REFACTOR WHEN WE MAKE CUSTOM MODELS -->
+          {% csrf_token %} 
+          
+          <div class="form-label">
+          {{ form.username.label }}:
+          {{ form.username}}
+          </div>
+          <br />
+         <div class="form-label">
+          {{ form.password1.label}}:
+          {{ form.password1 }}
+            </div>
+          <br />
+         <div class="form-label">
+          {{ form.password2.label }}:
+          {{ form.password2}}
+            </div>
+        <br />
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="signup-btn" value="signup"> Sign up Now </button>
+        <input type="hidden" name="next" value="{{ next }}" />
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+    <!-- *************************** Login Modal **************************** -->
+
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content modal-custom">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login Now</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="{% url 'login' %}">
+
+        <!-- NOT A DRY WAY TO GRAB FORM DATA - GOING TO REFACTOR WHEN WE MAKE CUSTOM MODELS -->
+
+          {% csrf_token %} 
+          
+          <div class="form-label">
+          {{ login_form.username.label }}:
+          {{ login_form.username}}
+          </div>
+          <br />
+         <div class="login_form-label">
+          {{ login_form.password.label}}:
+          {{ login_form.password }}
+            </div>
+        <br />
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="signup-btn" value="login"> Login </button>
+        <input type="hidden" name="next" value="{{ next }}" />
+      </div>
+      </form>
+    </div>
+  </div>
+</div>

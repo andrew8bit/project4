@@ -1,0 +1,82 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="auth-container">
+  <h1>Hello {{ user.username }}</h1>
+  <p>
+    <button
+      class="btn btn-primary"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseUserName"
+      aria-expanded="true"
+      aria-controls="collapseUserName"
+    >
+      Username
+    </button>
+    <button
+      class="btn btn-primary"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseChangePassword"
+      aria-expanded="false"
+      aria-controls="collapseChangePassword"
+    >
+      Update Password
+    </button>
+        <button
+      class="btn btn-danger"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseDeleteUser"
+      aria-expanded="false"
+      aria-controls="collapseDeleteUser"
+    >
+      Delete Profile
+    </button>
+  </p>
+  </p>
+
+
+
+  <div class="collapse" id="collapseChangePassword">
+    <div class="card card-body">
+      <form method="post" action="{% url 'profile_update' %}">
+        {% csrf_token %} 
+        {{ password_form.as_p }}
+        
+        <input type="submit" class="btn" value="update" />
+        <input type="hidden" name="next" value="{{ next }}" />
+      </form>
+    </div>
+  </div>
+
+  <div class="collapse" id="collapseUserName">
+    <div class="card card-body">
+      <form method="post" action="{% url 'profile_update' %}">
+        {% csrf_token %} 
+        {{ username_form.as_p }}
+
+        <input type="submit" class="btn" value="update" />
+        <input type="hidden" name="next" value="{{ next }}" />
+      </form>
+    </div>
+  </div>
+
+  <div class="collapse" id="collapseDeleteUser">
+    <div class="card card-body">
+      <form method="post" action="{% url 'profile_update' %}">
+        {% csrf_token %} 
+        <p> Please confirm your password to delete, there is no going back! </p>
+        {{ delete_form.as_p }}
+
+
+        <input type="submit" class="btn btn-danger" value="delete" />
+        <input type="hidden" name="next" value="{{ next }}" />
+      </form>
+    </div>
+  </div>
+
+
+</div>
+
+{% endblock %}

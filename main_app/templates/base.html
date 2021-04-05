@@ -1,4 +1,5 @@
 {% load static %}
+{% load sass_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +24,11 @@
     <link rel="stylesheet" type="text/css" href="{% static 'global.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'homecarousel.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'bounties.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'post.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'fab.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'css/main.scss' %}" />
+    
+
     <link rel="stylesheet" type="text/css" href="{% static 'donation.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'shop.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'educate.css' %}" />
@@ -31,12 +37,12 @@
     
 
 
-
     {% comment %}
     <script defer src="{% static 'app.js' %}"></script>
     {% endcomment %}
 
   </head>
+<<<<<<< HEAD
 
   <header class="nav-header">
     <nav class="nav-main" role="navigation">
@@ -116,110 +122,16 @@
       </ul>
     </nav>
   </header>
+=======
+   {% include 'partials/header.html' %}
+>>>>>>> 468e0a3f914ce0189cea26e7ef1aa2aa2c03ed26
 
   <body>
+    
     {% block content %} 
 
+
     {% endblock %}
-
-    <!-- *************************** Signup Modal **************************** -->
-<div
-  class="modal fade"
-  id="signupModal"
-  tabindex="-1"
-  aria-labelledby="signupModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content modal-custom">
-      <div class="modal-header">
-        <h5 class="modal-title" id="signupModalLabel">Sign Up Now</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <form method="post" action="{% url 'signup' %}">
-
-        <!-- NOT A DRY WAY TO GRAB FORM DATA - GOING TO REFACTOR WHEN WE MAKE CUSTOM MODELS -->
-          {% csrf_token %} 
-          
-          <div class="form-label">
-          {{ form.username.label }}:
-          {{ form.username}}
-          </div>
-          <br />
-         <div class="form-label">
-          {{ form.password1.label}}:
-          {{ form.password1 }}
-            </div>
-          <br />
-         <div class="form-label">
-          {{ form.password2.label }}:
-          {{ form.password2}}
-            </div>
-        <br />
-
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="signup-btn" value="signup"> Sign up Now </button>
-        <input type="hidden" name="next" value="{{ next }}" />
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-    <!-- *************************** Login Modal **************************** -->
-
-<div
-  class="modal fade"
-  id="loginModal"
-  tabindex="-1"
-  aria-labelledby="loginModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content modal-custom">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">Login Now</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <form method="post" action="{% url 'login' %}">
-
-        <!-- NOT A DRY WAY TO GRAB FORM DATA - GOING TO REFACTOR WHEN WE MAKE CUSTOM MODELS -->
-
-          {% csrf_token %} 
-          
-          <div class="form-label">
-          {{ login_form.username.label }}:
-          {{ login_form.username}}
-          </div>
-          <br />
-         <div class="login_form-label">
-          {{ login_form.password.label}}:
-          {{ login_form.password }}
-            </div>
-        <br />
-
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="signup-btn" value="login"> Login </button>
-        <input type="hidden" name="next" value="{{ next }}" />
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
@@ -233,34 +145,6 @@
     ></script>
   </body>
 
-
-        <footer class="footer-container">
-        <div class="about-project">
-            <h3>Search</h3>
-            <p> An application created with Django to bring people together and raise awareness to human trafficking and hunt down perpetrators and rescue victims.
-            </p>
-
-        </div>
-        <div class="about-project">
-            <h3>The Team</h3>
-            <p> 
-                This application was produced by the team of
-                <a href="https://github.com/AnaCeprnja"> Ana Ceprnja </a> and 
-                <a href="https://github.com/andrew8bit"> Andrew Bith </a> as part of General Assembly's Software 
-                Engineering Bootcamp. 
-            </p>
-
-        </div>
-        <div class="follow-project">
-            <h3>#FOLLOW</h3>
-            <p> 
-                Follow our github for future development!
-            </p>
-        </div>
-    </footer>
-    <div class="copywrite-container">
-        <p>This app was create for personal use. Images sourced from Freepik.com by Freepik. All rights reserved</p>
-    </div>
-    
+       {% include 'partials/footer.html' %}
 
 </html>
