@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 import environ
+import django_heroku
 from pathlib import Path
 from dotenv import load_dotenv
 from django.contrib.messages import constants as messages
-
 
 load_dotenv()
 
@@ -154,3 +154,5 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
     
 }
+
+django_heroku.settings(locals())
