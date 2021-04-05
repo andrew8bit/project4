@@ -18,5 +18,7 @@ urlpatterns = [
     path('hoodies/', views.hoodies, name="hoodies"),
     path('tshirt/', views.tshirt, name="tshirt"),
     path('accessories/', views.accessories, name="accessories"),
-
+    path('educate/', views.educate, name="educate"),
+    path('recover/', views.recover, name="recover"),
+    path('team/', views.team, name="team"),
 ]
