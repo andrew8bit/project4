@@ -221,9 +221,9 @@ def educate(request):
     return render(request, 'educate.html')
 
 
-def recover(request):
+def reclaim(request):
 
-    return render(request, 'recover.html')
+    return render(request, 'reclaim.html')
 
 
 def team(request):
