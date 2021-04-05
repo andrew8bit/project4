@@ -1,6 +1,6 @@
 @use 'abstracts/fonts';
-@use 'abstracts/colors';
+@import 'abstracts/colors';
 
-p {
-    background: colors.$background-dark
-}
+// p {
+//     background: red
+// }
