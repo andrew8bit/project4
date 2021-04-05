@@ -136,6 +136,10 @@
     transition: all .3s ease-in-out;
     background-color: green;
 }
+#hidden {
+    color:rgba(37, 255, 48, 0.74);
+    font-size:26px;
+}
 
 .pg3-img {
     width: 100%;
