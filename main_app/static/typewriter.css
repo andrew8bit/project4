@@ -69,7 +69,7 @@
 }
 
 .typewriter p:nth-child(4) {
-  width: 520px; /* manually set width */
+  width: 97%;
   opacity: 0;
   -webkit-animation: type4 2s steps(40, end),
     blink 0.5s step-end infinite alternate; /* this goes on the last type writer animation */

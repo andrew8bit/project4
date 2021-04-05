@@ -215,17 +215,21 @@ def accessories(request):
 
 def educate(request):
 
-    return render(request, 'educate.html')
+    return render(request, 'about/educate.html')
 
 
 def recover(request):
 
-    return render(request, 'recover.html')
+    return render(request, 'about/recover.html')
 
 
 def team(request):
 
-    return render(request, 'team.html')
+    return render(request, 'about/team.html')
+
+def reclaim(request):
+
+    return render(request, 'about/reclaim.html')
 
 
 def homepage(request):
