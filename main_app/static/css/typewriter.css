@@ -27,6 +27,7 @@
 
 /*********************************** Type Writer In Text Box Css ******************************************************/
 /* CODE ADJUSTED FROM https://codepen.io/jenlky/pen/dKoQrW */
+
 /* We have to treat each line as a different p tag, and delay and adjust timing and width. We have to adjust 
     width on the last type keyframe */
 
