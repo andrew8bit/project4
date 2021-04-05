@@ -86,7 +86,7 @@ def signup(request):
 
 def login_view(request):
     messages.success(request, 'Login Successful')
-    login(request, user)
+    login(request)
 
 
 def logout_view(request):
@@ -213,22 +213,19 @@ def accessories(request):
 # HOMEPAGE
 # // -------------------
 
-    return render(request, 'bounty_post.html')
-
-
 def educate(request):
 
-    return render(request, 'educate.html')
+    return render(request, 'about/educate.html')
 
-
-def reclaim(request):
-
-    return render(request, 'reclaim.html')
 
 
 def team(request):
 
-    return render(request, 'team.html')
+    return render(request, 'about/team.html')
+
+def reclaim(request):
+
+    return render(request, 'about/reclaim.html')
 
 
 def homepage(request):

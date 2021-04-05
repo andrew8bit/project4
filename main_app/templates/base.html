@@ -36,76 +36,7 @@
 
 </head>
 
-<header class="nav-header">
-  <nav class="nav-main" role="navigation">
-    <ul class="nav-ul">
 
-
-      {% if user.is_authenticated %}
-      <li class="nav-item active">
-        <a class="nav-a" href="/">Profile</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-a" href="{% url 'bounties' %} ">Bounties</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-a" href="{% url 'logout' %}">Log out</a>
-      </li>
-      {% else %}
-
-      <li class="nav-item ">
-        <button class="nav-a nav-btn" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">
-          Login
-        </button>
-      </li>
-      <li class="nav-item ">
-        <button class="nav-a nav-btn" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">
-          Sign Up
-        </button>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-a" href="/"> Support </a>
-      </li>
-
-      {% endif %}
-
-      <li class="blackhat">
-        <a href="/">
-          <div class="blackhat-container">
-            <img src="{% static '/images/blackhat.png' %}" />
-          </div>
-        </a>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-a dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          About
-        </a>
-
-
-
-
-      </li>
-      <li><a class="nav-a" href="#">Blog</a></li>
-      <li class="nav-item dropdown">
-        <a class="nav-a dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          Shop
-        </a>
-
-        <ul class="dropdown-menu dropdown-ul" aria-labelledby="navbarDropdown">
-          <li><a class="nav-a dropdown-item dropdown-a" href="/hoodies">Hoodies</a></li>
-          <li><a class="nav-a dropdown-item dropdown-a" href="/tshirt">T-Shirts</a></li>
-          <hr class="nav-ul-hr" />
-          <li><a class="nav-a dropdown-item dropdown-a" href="/accessories">Accessories</a></li>
-
-        </ul>
-
-      </li>
-    </ul>
-  </nav>
-</header>
 {% include 'partials/header.html' %}
 
 <body>
