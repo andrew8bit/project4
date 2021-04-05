@@ -136,7 +136,7 @@ STATICFILES_FINDERS = [
     'sass_processor.finders.CssFinder'
 ]
 
-STATICFILES_STORAGE = django.contrib.staticfiles.storage.StaticFilesStorage
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 STATIC_URL = '/static/'
 
