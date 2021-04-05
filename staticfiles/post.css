@@ -39,9 +39,7 @@
     display: block;
     padding: .5rem 1rem;
     color: white;
-    max-height: 300px;
-    /* border: 1px solid rgba(0,0,0,.125); */
-    
+    max-height: 300px; 
 }
 
 .post-group {

@@ -1,0 +1,6 @@
+@use 'abstracts/fonts';
+@use 'abstracts/colors';
+
+p {
+    background: colors.$background-dark
+}

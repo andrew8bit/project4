@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "main.css",
+	"sources": [
+		"main.scss",
+		"abstracts/_colors.scss"
+	],
+	"names": [],
+	"mappings": "AAAA,IAAI,CAAJ,iBAAI;AAGJ,AAAA,CAAC,CAAC;EACE,UAAU,EAAE,GAChB,GAAC"
+}
