@@ -86,7 +86,7 @@ def signup(request):
 
 def login_view(request):
     messages.success(request, 'Login Successful')
-    login(request, user)
+    login(request)
 
 
 def logout_view(request):
@@ -212,9 +212,6 @@ def accessories(request):
 # // -------------------
 # HOMEPAGE
 # // -------------------
-
-    return render(request, 'bounty_post.html')
-
 
 def educate(request):
 
