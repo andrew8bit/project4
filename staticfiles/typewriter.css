@@ -1,30 +1,28 @@
 /************************************* Type Writer Text Container ***************************************/
 
 .homepage-text-container-head {
-    margin-top: 10em;
-    margin-left: 3em;
-    display: flex;
+  margin-top: 10em;
+  margin-left: 3em;
+  display: flex;
 }
 
-.homepage-text-container-head h1{
-    color: #e4ffe8;
-    text-transform: uppercase;
-    font-size: 4em;
-
+.homepage-text-container-head h1 {
+  color: #e4ffe8;
+  text-transform: uppercase;
+  font-size: 4em;
 }
 
-.homepage-text-container p{
-    color: #ffffff;
-    z-index: 2;
-
+.homepage-text-container p {
+  color: #ffffff;
+  z-index: 2;
 }
 
 .homepage-text-container {
-    position: relative;
-    z-index: 2;
-    margin: 3em;
-    background-color: rgba(0, 0, 0, 0.596);
-    height: 50%;
+  position: relative;
+  z-index: 2;
+  margin: 3em;
+  background-color: rgba(0, 0, 0, 0.596);
+  height: 50%;
 }
 
 /*********************************** Type Writer In Text Box Css ******************************************************/
@@ -32,193 +30,195 @@
 /* We have to treat each line as a different p tag, and delay and adjust timing and width. We have to adjust 
     width on the last type keyframe */
 
-    .typewriter p {
-        border-right: .15em solid rgb(0, 255, 55);
-        font-size: 1.5em;
-        white-space: nowrap;
-        overflow: hidden;
-        -webkit-animation-fill-mode: forwards;
-        animation-fill-mode: forwards;
-      }
-      .typewriter p:nth-child(1) {
-        width: 100%; /* manually set width */
-        -webkit-animation: type 2s steps(40, end);
-        animation: type 2s steps(40, end);
-        -webkit-animation-fill-mode: forwards;
-        animation-fill-mode: forwards;
-      }
-      
-      .typewriter p:nth-child(2) {
-        width: 100%; /* manually set width */
-        opacity: 0;
-        -webkit-animation: type2 2s steps(40, end);
-        animation: type2 2s steps(40, end);
-        -webkit-animation-delay: 2s;
-        animation-delay: 2s;
-        -webkit-animation-fill-mode: forwards;
-        animation-fill-mode: forwards;
-      }
-      
-      .typewriter p:nth-child(3) {
-        width: 100%; /* manually set width */
-        opacity: 0;
-        -webkit-animation: type3 2s steps(40, end);
-        animation: type3 2s steps(40, end);
-        -webkit-animation-delay: 4s;
-        animation-delay: 4s;
-        -webkit-animation-fill-mode: forwards;
-        animation-fill-mode: forwards;
-      }
-    
-      .typewriter p:nth-child(4) {
-        width: 520px; /* manually set width */
-        opacity: 0;
-        -webkit-animation: type4 2s steps(40, end), blink .5s step-end infinite alternate; /* this goes on the last type writer animation */
-        animation: type4 2s steps(40, end), blink .5s step-end infinite alternate; /* this goes on the last type writer animation */
-        -webkit-animation-delay: 4s;
-        animation-delay: 6s;
-        -webkit-animation-fill-mode: forwards;
-        animation-fill-mode: forwards;
-      }
-      
-      @keyframes type {
-        0% {
-          width: 0;
-        }
-        99.9% {
-          border-right: .15em solid rgb(0, 255, 55);
-        }
-        100% {
-          border: none;
-        }
-      }
-      
-      @-webkit-keyframes type {
-        0% {
-          width: 0;
-        }
-        99.9% {
-          border-right: .15em solid rgb(0, 255, 55);
-        }
-        100% {
-          border: none;
-        }
-      }
-      
-      @keyframes type2 {
-        0% {
-          width: 0;
-        }
-        1% {
-          opacity: 1;
-        }
-        99.9% {
-          border-right: .15em solid rgb(0, 255, 55);
-        }
-        100% {
-          opacity: 1;
-          border: none;
-        }
-      }
-      
-      @-webkit-keyframes type2 {
-        0% {
-          width: 0;
-        }
-        1% {
-          opacity: 1;
-        }
-        99.9% {
-          border-right: .15em solid rgb(0, 255, 55);
-        }
-        100% {
-          opacity: 1;
-          border: none;
-        }
-      }
-      
-      @keyframes type3 {
-        0% {
-          width: 0;
-        }
-        1% {
-          opacity: 1;
-        }
-        99.9% {
-          border-right: .15em solid rgb(0, 255, 55);
-        }
-        100% {
-          opacity: 1;
-          border: none;
-        }
-      }
-      
-      @-webkit-keyframes type3 {
-        0% {
-          width: 0;
-        }
-        1% {
-          opacity: 1;
-        }
-        99.9% {
-          border-right: .15em solid rgb(0, 255, 55);
-        }
-        100% {
-          opacity: 1;
-          border: none;
-        }
-      }
-    
-      @keyframes type4 {
-        0% {
-          width: 0;
-        }
-        1% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-      
-      @-webkit-keyframes type4 {
-        0% {
-          width: 0;
-        }
-        1% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-      
-      @keyframes blink {
-        50% {
-          border-color: transparent;
-        }
-      }
-      @-webkit-keyframes blink {
-        50% {
-          border-color: tranparent;
-        }
-      }
+.typewriter p {
+  border-right: 0.15em solid rgb(0, 255, 55);
+  font-size: 1.2em;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+.typewriter p:nth-child(1) {
+  width: 100%; /* manually set width */
+  -webkit-animation: type 2s steps(40, end);
+  animation: type 2s steps(40, end);
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
 
-    /************************* This handles the app name **********************/
-    .typewriter h1 {
-        overflow: hidden; /* Ensures the content is not revealed until the animation */
-        text-decoration: 1px underline;
-        text-decoration-color: rgb(0, 255, 55);
-        white-space: nowrap; /* Keeps the content on a single line */
-        letter-spacing: .05em; /* Adjust as needed */
-        animation: 
-          typing 1s steps(40, end),
-          blink-caret 2s step-end ;
-      }
-      
-      /* The typing effect */
-      @keyframes typing {
-        from { width: 0 }
-        to { width: 100% }
-      }
-      
+.typewriter p:nth-child(2) {
+  width: 100%; /* manually set width */
+  opacity: 0;
+  -webkit-animation: type2 2s steps(40, end);
+  animation: type2 2s steps(40, end);
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.typewriter p:nth-child(3) {
+  width: 100%; /* manually set width */
+  opacity: 0;
+  -webkit-animation: type3 2s steps(40, end);
+  animation: type3 2s steps(40, end);
+  -webkit-animation-delay: 4s;
+  animation-delay: 4s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.typewriter p:nth-child(4) {
+  width: 97%;
+  opacity: 0;
+  -webkit-animation: type4 2s steps(40, end),
+    blink 0.5s step-end infinite alternate; /* this goes on the last type writer animation */
+  animation: type4 2s steps(40, end), blink 0.5s step-end infinite alternate; /* this goes on the last type writer animation */
+  -webkit-animation-delay: 4s;
+  animation-delay: 6s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: 0.15em solid rgb(0, 255, 55);
+  }
+  100% {
+    border: none;
+  }
+}
+
+@-webkit-keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: 0.15em solid rgb(0, 255, 55);
+  }
+  100% {
+    border: none;
+  }
+}
+
+@keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: 0.15em solid rgb(0, 255, 55);
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+@-webkit-keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: 0.15em solid rgb(0, 255, 55);
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+@keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: 0.15em solid rgb(0, 255, 55);
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+@-webkit-keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: 0.15em solid rgb(0, 255, 55);
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+@keyframes type4 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes type4 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    border-color: tranparent;
+  }
+}
+
+/************************* This handles the app name **********************/
+.typewriter h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  text-decoration: 1px underline;
+  text-decoration-color: rgb(0, 255, 55);
+  white-space: nowrap; /* Keeps the content on a single line */
+  letter-spacing: 0.05em; /* Adjust as needed */
+  animation: typing 1s steps(40, end), blink-caret 2s step-end;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
