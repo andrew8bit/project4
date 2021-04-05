@@ -16,22 +16,12 @@
       {% else %}
 
       <li class="nav-item">
-        <button
-          class="nav-a nav-btn"
-          type="button"
-          data-bs-toggle="modal"
-          data-bs-target="#loginModal"
-        >
+        <button class="nav-a nav-btn" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">
           Login
         </button>
       </li>
       <li class="nav-item">
-        <button
-          class="nav-a nav-btn"
-          type="button"
-          data-bs-toggle="modal"
-          data-bs-target="#signupModal"
-        >
+        <button class="nav-a nav-btn" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">
           Sign Up
         </button>
       </li>
@@ -42,90 +32,85 @@
       {% endif %}
 
       <li class="blackhat">
-        <a href="/"
-          ><div class="blackhat-container">
-            <img src="{% static '/images/blackhat.png' %}" /></div
-        ></a>
+        <a href="/">
+          <div class="blackhat-container">
+            <img src="{% static '/images/blackhat.png' %}" />
+          </div>
+        </a>
       </li>
-      <li><a class="nav-a" href="#">About Us</a></li>
+      <a class="nav-a dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        About
+      </a>
+
+      <ul class="dropdown-menu dropdown-ul" aria-labelledby="navbarDropdown">
+        <li>
+          <a class="nav-a dropdown-item dropdown-a" href="/Educate">Educate</a>
+        </li>
+        <li>
+          <a class="nav-a dropdown-item dropdown-a" href="/Reclaim">Reclaim</a>
+        </li>
+        <hr class="nav-ul-hr" />
+        <li>
+          <a class="nav-a dropdown-item dropdown-a" href="/Team">Team</a>
+        </li>
+      </ul>
+
       <li><a class="nav-a" href="#">Blog</a></li>
       <li class="nav-item dropdown">
-        <a
-          class="nav-a dropdown-toggle"
-          href="#"
-          id="navbarDropdown"
-          role="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
+        <a class="nav-a dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
           Shop
         </a>
 
         <ul class="dropdown-menu dropdown-ul" aria-labelledby="navbarDropdown">
           <li>
-            <a class="nav-a dropdown-item dropdown-a" href="/hoodies"
-              >Hoodies</a
-            >
+            <a class="nav-a dropdown-item dropdown-a" href="/hoodies">Hoodies</a>
           </li>
           <li>
-            <a class="nav-a dropdown-item dropdown-a" href="/tshirt"
-              >T-Shirts</a
-            >
+            <a class="nav-a dropdown-item dropdown-a" href="/tshirt">T-Shirts</a>
           </li>
           <hr class="nav-ul-hr" />
           <li>
-            <a class="nav-a dropdown-item dropdown-a" href="/accessories"
-              >Accessories</a
-            >
+            <a class="nav-a dropdown-item dropdown-a" href="/accessories">Accessories</a>
           </li>
         </ul>
       </li>
     </ul>
-        {% include './messages.html' %}
+    {% include './messages.html' %}
   </nav>
 </header>
 
 
-    <!-- *************************** Signup Modal **************************** -->
-<div
-  class="modal fade"
-  id="signupModal"
-  tabindex="-1"
-  aria-labelledby="signupModalLabel"
-  aria-hidden="true"
->
+<!-- *************************** Signup Modal **************************** -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content modal-custom">
       <div class="modal-header">
         <h5 class="modal-title" id="signupModalLabel">Sign Up Now</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form method="post" action="{% url 'signup' %}">
 
-        <!-- NOT A DRY WAY TO GRAB FORM DATA - GOING TO REFACTOR WHEN WE MAKE CUSTOM MODELS -->
-          {% csrf_token %} 
-          
+          <!-- NOT A DRY WAY TO GRAB FORM DATA - GOING TO REFACTOR WHEN WE MAKE CUSTOM MODELS -->
+          {% csrf_token %}
+
           <div class="form-label">
-          {{ form.username.label }}:
-          {{ form.username}}
+            {{ form.username.label }}:
+            {{ form.username}}
           </div>
           <br />
-         <div class="form-label">
-          {{ form.password1.label}}:
-          {{ form.password1 }}
-            </div>
+          <div class="form-label">
+            {{ form.password1.label}}:
+            {{ form.password1 }}
+          </div>
           <br />
-         <div class="form-label">
-          {{ form.password2.label }}:
-          {{ form.password2}}
-            </div>
-        <br />
+          <div class="form-label">
+            {{ form.password2.label }}:
+            {{ form.password2}}
+          </div>
+          <br />
 
       </div>
       <div class="modal-footer">
@@ -137,43 +122,32 @@
   </div>
 </div>
 
-    <!-- *************************** Login Modal **************************** -->
+<!-- *************************** Login Modal **************************** -->
 
-<div
-  class="modal fade"
-  id="loginModal"
-  tabindex="-1"
-  aria-labelledby="loginModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content modal-custom">
       <div class="modal-header">
         <h5 class="modal-title" id="loginModalLabel">Login Now</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form method="post" action="{% url 'login' %}">
 
-        <!-- NOT A DRY WAY TO GRAB FORM DATA - GOING TO REFACTOR WHEN WE MAKE CUSTOM MODELS -->
+          <!-- NOT A DRY WAY TO GRAB FORM DATA - GOING TO REFACTOR WHEN WE MAKE CUSTOM MODELS -->
 
-          {% csrf_token %} 
-          
+          {% csrf_token %}
+
           <div class="form-label">
-          {{ login_form.username.label }}:
-          {{ login_form.username}}
+            {{ login_form.username.label }}:
+            {{ login_form.username}}
           </div>
           <br />
-         <div class="login_form-label">
-          {{ login_form.password.label}}:
-          {{ login_form.password }}
-            </div>
-        <br />
+          <div class="login_form-label">
+            {{ login_form.password.label}}:
+            {{ login_form.password }}
+          </div>
+          <br />
 
       </div>
       <div class="modal-footer">

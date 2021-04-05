@@ -3,98 +3,84 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Project 4</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-      crossorigin="anonymous"
-    />
 
-    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'typewriter.css' %}"
-    />
-    <link rel="stylesheet" type="text/css" href="{% static 'global.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'homecarousel.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'bounties.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'post.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'fab.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% sass_src 'css/main.scss' %}" />
-    
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Project 4</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
 
-    <link rel="stylesheet" type="text/css" href="{% static 'donation.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'shop.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'educate.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'recover.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'team.css' %}" />
-    
+  <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'typewriter.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'global.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'homecarousel.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'bounties.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'post.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'fab.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% sass_src 'css/main.scss' %}" />
 
 
-    {% comment %}
-    <script defer src="{% static 'app.js' %}"></script>
-    {% endcomment %}
-
-  </head>
-<<<<<<< HEAD
-
-  <header class="nav-header">
-    <nav class="nav-main" role="navigation">
-      <ul class="nav-ul">
+  <link rel="stylesheet" type="text/css" href="{% static 'donation.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'shop.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'educate.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'recover.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'team.css' %}" />
 
 
-        {% if user.is_authenticated %}
-        <li class="nav-item active">
-          <a class="nav-a" href="/">Profile</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-a" href="{% url 'bounties' %} ">Bounties</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-a" href="{% url 'logout' %}">Log out</a>
-        </li>
-        {% else %}
 
-        <li class="nav-item ">
-                        <button
-              class="nav-a nav-btn"
-      type="button"
-      data-bs-toggle="modal"
-      data-bs-target="#loginModal"
-    >
+  {% comment %}
+  <script defer src="{% static 'app.js' %}"></script>
+  {% endcomment %}
+
+</head>
+
+<header class="nav-header">
+  <nav class="nav-main" role="navigation">
+    <ul class="nav-ul">
+
+
+      {% if user.is_authenticated %}
+      <li class="nav-item active">
+        <a class="nav-a" href="/">Profile</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-a" href="{% url 'bounties' %} ">Bounties</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-a" href="{% url 'logout' %}">Log out</a>
+      </li>
+      {% else %}
+
+      <li class="nav-item ">
+        <button class="nav-a nav-btn" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">
           Login
-          </button>
-        </li>
-        <li class="nav-item ">
-              <button
-              class="nav-a nav-btn"
-      type="button"
-      data-bs-toggle="modal"
-      data-bs-target="#signupModal"
-    >
+        </button>
+      </li>
+      <li class="nav-item ">
+        <button class="nav-a nav-btn" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">
           Sign Up
-          </button>
-        </li>
-        <li class="nav-item " >
-          <a class="nav-a" href="/"> Support </a>
-        </li>
+        </button>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-a" href="/"> Support </a>
+      </li>
 
-        {% endif %}
+      {% endif %}
 
-        <li class="blackhat">
-          <a href="/"
-            ><div class="blackhat-container">
-              <img src="{% static '/images/blackhat.png' %}"/></div
-          ></a>
-        </li>
-        <a class="nav-a dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          About 
+      <li class="blackhat">
+        <a href="/">
+          <div class="blackhat-container">
+            <img src="{% static '/images/blackhat.png' %}" />
+          </div>
+        </a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-a dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          About
         </a>
 
         <ul class="dropdown-menu dropdown-ul" aria-labelledby="navbarDropdown">
@@ -102,49 +88,45 @@
           <li><a class="nav-a dropdown-item dropdown-a" href="/recover">Recover</a></li>
           <hr class="nav-ul-hr" />
           <li><a class="nav-a dropdown-item dropdown-a" href="/team">The Team</a></li>
-  
+
         </ul>
-        <li><a class="nav-a" href="#">Blog</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-a dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Shop
-          </a>
+      </li>
+      <li><a class="nav-a" href="#">Blog</a></li>
+      <li class="nav-item dropdown">
+        <a class="nav-a dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Shop
+        </a>
 
-          <ul class="dropdown-menu dropdown-ul" aria-labelledby="navbarDropdown">
-            <li><a class="nav-a dropdown-item dropdown-a" href="/hoodies">Hoodies</a></li>
-            <li><a class="nav-a dropdown-item dropdown-a" href="/tshirt">T-Shirts</a></li>
-            <hr class="nav-ul-hr" />
-            <li><a class="nav-a dropdown-item dropdown-a" href="/accessories">Accessories</a></li>
-    
-          </ul>
+        <ul class="dropdown-menu dropdown-ul" aria-labelledby="navbarDropdown">
+          <li><a class="nav-a dropdown-item dropdown-a" href="/hoodies">Hoodies</a></li>
+          <li><a class="nav-a dropdown-item dropdown-a" href="/tshirt">T-Shirts</a></li>
+          <hr class="nav-ul-hr" />
+          <li><a class="nav-a dropdown-item dropdown-a" href="/accessories">Accessories</a></li>
 
-        </li>
-      </ul>
-    </nav>
-  </header>
-=======
-   {% include 'partials/header.html' %}
->>>>>>> 468e0a3f914ce0189cea26e7ef1aa2aa2c03ed26
+        </ul>
 
-  <body>
-    
-    {% block content %} 
+      </li>
+    </ul>
+  </nav>
+</header>
+{% include 'partials/header.html' %}
+
+<body>
+
+  {% block content %}
 
 
-    {% endblock %}
+  {% endblock %}
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
-      integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+    integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+</body>
 
-       {% include 'partials/footer.html' %}
+{% include 'partials/footer.html' %}
 
 </html>
