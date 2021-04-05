@@ -83,14 +83,16 @@ def signup(request):
         'form': form,
     })
 
+
 def login_view(request):
     messages.success(request, 'Login Successful')
-    login(request, user)
+    login(request)
 
 
 def logout_view(request):
     messages.success(request, 'Logout Successful')
     logout(request)
+
 
 @login_required
 def profile_update(request):
@@ -102,14 +104,14 @@ def profile_update(request):
     if request.method == 'POST':
         if username_form.is_valid():
             user.username = request.POST.get('username')
-            messages.success(request, f"Changed username to {user.username} ")    
+            messages.success(request, f"Changed username to {user.username} ")
             user.save()
 
         if password_form.is_valid():
             password_form.save()
             messages.success(request, "Successfully Changed Password")
             update_session_auth_hash(request, password_form.user)
-        
+
         if delete_form.is_valid():
             confirmed = user.check_password(request.POST.get('password'))
             if confirmed:
@@ -118,7 +120,7 @@ def profile_update(request):
                 user.save()
             if not confirmed:
                 messages.error(request, "Password was not confirmed")
-        
+
         return redirect('/accounts/profile/')
 
     return render(request, 'registration/profile.html', {
@@ -143,6 +145,7 @@ def bounties_index(request):
             'bounties': bounties
         }
     )
+
 
 @login_required
 def bounty_show(request, bounty_id):
@@ -209,6 +212,20 @@ def accessories(request):
 # // -------------------
 # HOMEPAGE
 # // -------------------
+
+def educate(request):
+
+    return render(request, 'educate.html')
+
+
+def recover(request):
+
+    return render(request, 'recover.html')
+
+
+def team(request):
+
+    return render(request, 'team.html')
 
 
 def homepage(request):
