@@ -28,6 +28,10 @@
     border: 1px solid green;
     margin: 1em;
 }
+.bounties-img {
+    max-width: 286px;
+    max-height: 286px;
+}
 
 .bounty-show {
     justify-content: space-evenly;
