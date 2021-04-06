@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 import environ
+import django_heroku
 from pathlib import Path
 from dotenv import load_dotenv
 from django.contrib.messages import constants as messages
-
 
 load_dotenv()
 
@@ -136,6 +136,8 @@ STATICFILES_FINDERS = [
     'sass_processor.finders.CssFinder'
 ]
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -154,3 +156,5 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
     
 }
+
+django_heroku.settings(locals())

@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+/**************************** Homepage Page 1 styles **************************************/
+
+.homepage-pg1 {
+    width: 100%;
+    height: 100%;
+    background-color: #393e46;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Source Code Pro', monospace;
+    border-bottom: 1px solid green;
+}
+
+/*    The styles for the container for the button of pg1 are in ./typewriter.css      */ 
+
+.signup-btn {
+    margin-left: 5em;
+    height: 50px;
+    align-self: center;
+    font-weight: bolder;
+    color: white;
+    background-color: transparent;
+    border: 1px solid rgba(37, 255, 48, 0.74);
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+
+}
+
+.signup-btn:hover {
+    transition: all 0.3s ease-in-out;
+    color:black;
+    background-color:rgba(37, 255, 48, 0.74);
+    border-radius: .5em;
+
+}
+
+/********************************* GLOBE SETTINGS  ********************************/
+
+#globe {
+    z-index: 0;
+    position: relative;
+    bottom: 50%;
+    left: 10%;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    background:url('../images/greenoutlinesearth.png');
+    background-size:cover;
+    border:2px solid rgba(99, 255, 107, 0.397) ;
+    border-radius:50%;
+    width:1000px;
+    height:1000px;
+    animation: movement 15s linear 0s infinite;
+    box-shadow:0 0 25px rgba(110, 255, 118, 0.5),
+               -8px -8px 15px rgba(110, 255, 118, 0.5)  inset,
+               2px 2px 25px rgb(0, 99, 5, 0.5)  inset,
+               -45px -45px 25px rgb(0, 99, 5, 0.5) inset, 
+               25px 25px 45px rgb(0, 99, 5, 0.5)  inset;
+    transform:rotateX(6deg) rotateY(6deg) rotateZ(6deg);
+  }
+
+  @keyframes movement {
+    0% { background-position:500px 0 }
+    100% { background-position: 1000px 0 }
+  }
+
+/*************************************** MODAL STYLES ********************************/
+
+.modal-custom {
+    background-color: rgb(61, 61, 61);
+    color: white;
+    border: 1px solid rgb(135, 255, 135);
+
+}
+
+/**************************** Homepage Page 2 styles **************************************/
+
+.pg2 {
+    font-family: 'Source Code Pro', monospace;
+    padding-top: 3em;
+    background-color: #393e46;
+    height: 90%;
+    background-image: url('../images/hands.png');
+    size: 100%;
+    background-position: top;
+
+} 
+
+.donation_description {
+    border: 1px solid green;
+    color: white;
+    background-color:  rgba(0, 0, 0, 0.596);
+    height: 75%;
+    width: 40%;
+    position: relative;
+    left: 55%;
+    top: 0%;
+}
+
+.makeadiff-a {
+    text-decoration: none;
+    font-size: 1.25em;
+    padding: 1em;
+    height: 50px;
+    align-self: center;
+    font-weight: bolder;
+    color: white;
+    text-transform: uppercase;
+    background-color:rgba(37, 255, 48, 0.74);
+    border: 1px solid rgba(37, 255, 48, 0.74);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    top: 65%;
+    left: 15%;
+    color: black;
+    letter-spacing: .05em;
+
+}
+
+.makeadiff-a:hover {
+    transition: all 0.3s ease-in-out;
+    color:rgba(37, 255, 48, 0.74);
+    background-color:transparent;
+    border-radius: .5em;
+}
+
+/**************************** Homepage Page 3 styles **************************************/
+.pg3-header {
+    z-index: -1;
+    padding-top: 100px;
+    background-color: #393e46;
+    transition: all .3s ease-in-out;
+}
+.pg3-header:hover {
+    transition: all .3s ease-in-out;
+    background-color: green;
+}
+#hidden {
+    color:rgba(37, 255, 48, 0.74);
+    font-size:26px;
+}
+
+.pg3-img {
+    width: 100%;
+    height: 100%;
+}
+
+.pg3 {
+    font-family: 'Source Code Pro', monospace;
+    background-color: #393e46;
+    height: 100%;
+    size: 100%;
+    background-position: top;
+    border-bottom: 1px solid green;
+} 

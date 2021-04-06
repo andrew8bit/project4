@@ -1,0 +1,109 @@
+.all-bounties-container {
+    width: 100%;
+    height: fit-content;
+    background-color: #393e46;
+    padding-top: 10em;
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding:  8em 3em;
+    overflow: hidden;
+    flex-wrap: wrap;
+    margin-bottom: auto;
+    word-break: keep-all;
+}
+
+
+.all-bounties-container a{
+    text-decoration: none;
+    color: white;
+}
+
+.bounties-card {
+    display: flex;
+    direction: column;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    border: 1px solid green;
+    margin: 1em;
+}
+
+.bounty-show {
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.bounties-card hr{
+    border: 1px solid green;
+    opacity: 1;
+}
+
+.bounties-card li{
+    width: 100%;
+    background: inherit;
+    border-bottom: 1px solid green;
+    color: inherit;
+}
+
+.bounties-card-body {
+    border: 1px solid green;
+}
+
+.post-group {
+    border: 2px solid green;
+    /* background: black; */
+    margin: 1em;
+    height: 600px;
+    max-height: 600px;
+    margin-bottom: 10px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.bounty-add {
+    background-color:transparent;
+    position: fixed;
+    right: 3em;
+    bottom: 3em;
+    width:60px;
+    height:60px;
+    border-radius:100%;
+    border: 1px solid green;
+    outline:none;
+    color:#FFF;
+    font-size:36px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: all .3s ease-in;  
+}
+
+.bounty-add:hover {
+    background-color: green;
+    border: 1px solid black;
+    transition: all .3s ease-in;  
+}
+
+
+.border-green {
+    border: 1px solid green;
+}
+.list-group-item {
+    background: transparent;
+    color: green;
+}
+
+.list-group-item:hover {
+    background: green;
+    color: white;
+}
+
+.comment-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comment-input textarea{
+    color: rgb(49, 255, 49);
+    background: black;
+}
