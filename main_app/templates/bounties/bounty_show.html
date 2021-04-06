@@ -8,9 +8,7 @@
   <span> <img class="laptop" src=" {% static '/images/laptop.png' %}"> </span>
   <ul>
     <li><button type="button" class="fab-btn" data-bs-toggle="modal" data-bs-target="#postModal"> Add a Post</button></li>
-    <li><a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20missing%20person!" target="_blank">Share on Twitter</a></li>
-    <li>Share</li>
-    <li>Share</li>
+    <li><a href="https://twitter.com/intent/tweet?text=https://hidden-osint.herokuapp.com/bounties/{{bounty.id}}/" target="_blank">Share on Twitter</a></li>
   </ul>
 </div>
 <script type="text/javascript">
@@ -81,7 +79,12 @@
           {% csrf_token %} 
           
           <div class="form-label">
-          {{ post_form.as_p }}
+          Title:{{ post_form.title }}
+          <hr />
+          <div class="form-label">
+          Content:
+          </div>
+          {{ post_form.content.as_textarea }}
             </div>
         <br />
 
