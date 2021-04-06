@@ -1248,3 +1248,35 @@ nav button {
         color: black;
         text-transform: uppercase;
     }
+
+.donation-container {
+  padding-top: 8em;
+  display: flex;
+  margin: 3em;
+}
+
+.donation-box {
+  border: 1px solid green;
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  background-color: #585858;
+}
+
+.donation-box select, .donation-box input, .donation-box button{
+  margin: 1em;
+}
+
+.donation-description {
+  border: 1px solid green;
+  max-width: 600px;
+  background-color: rgba(0,0,0,.3)
+
+}
+
+.donation-description p{
+  margin: 1em;
+  color: #e4ffe8;
+  
+}

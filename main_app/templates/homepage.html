@@ -5,10 +5,12 @@
     <div class="typewriter">
       <h1 class>HIDDEN<span style="color: rgb(0, 255, 55)">.</span></h1>
     </div>
-       {% if !user.is_authenticated %}
+       {% if user.is_authenticated %}
+       {% else %}
     <button type="button" class="signup-btn" data-bs-toggle="modal" data-bs-target="#signupModal">
       Enlist Today
     </button>
+
       {% endif %}
   </div>
   <div class="homepage-text-container">

@@ -28,7 +28,23 @@ stripe.api_key = os.getenv('STRIPE_API')
 
 
 def donation(request):
-    return render(request, 'donation/donation.html')
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+        # ok user created log them in
+            login(request, user)
+            return redirect('homepage')
+        else:
+            messages.success(request, 'Sign Up was successful, welcome!')
+
+    login_form = AuthenticationForm
+
+    form = UserCreationForm()
+    return render(request, 'donation/donation.html', {
+        'login_form': login_form,
+        'form': form,
+    })
 
 
 def charge(request):
@@ -78,15 +94,31 @@ def signup(request):
         else:
             messages.error(request, 'Unsuccessful Sign up')
     # this will run after if it's not a POST or it was invalid
-    form = UserCreationForm()
+    login_form = AuthenticationForm
     return render(request, 'registration/signup.html', {
+        'login_form': login_form,
         'form': form,
     })
 
 
-def login_view(request):
-    messages.success(request, 'Login Successful')
-    login(request)
+def login_request(request):
+    print('HELLO WORLD')
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            # ok user created log them in
+            login(request, user)
+            messages.success(request, 'Login was successful, welcome!')
+            return redirect('/')
+        else:
+            messages.error(request, 'Unsuccessful Sign up')
+    # this will run after if it's not a POST or it was invalid
+    login_form = AuthenticationForm
+    return render(request, 'registration/login.html', {
+        'login_form': login_form,
+        'form': form,
+    })
 
 
 def logout_view(request):
@@ -196,36 +228,131 @@ def bounty_post(request, bounty_id, post_id):
 
 
 def hoodies(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+        # ok user created log them in
+            login(request, user)
+            return redirect('homepage')
+        else:
+            messages.success(request, 'Sign Up was successful, welcome!')
 
-    return render(request, 'shop/hoodie.html')
+    login_form = AuthenticationForm
+
+    form = UserCreationForm()
+
+    return render(request, 'shop/hoodie.html', {
+        'login_form': login_form,
+        'form': form
+    })
 
 
 def tshirt(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+        # ok user created log them in
+            login(request, user)
+            return redirect('homepage')
+        else:
+            messages.success(request, 'Sign Up was successful, welcome!')
 
-    return render(request, 'shop/tshirt.html')
+    login_form = AuthenticationForm
+
+    form = UserCreationForm()
+
+    return render(request, 'shop/tshirt.html', {
+        'login_form': login_form,
+        'form': form
+    })
 
 
 def accessories(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+        # ok user created log them in
+            login(request, user)
+            return redirect('homepage')
+        else:
+            messages.success(request, 'Sign Up was successful, welcome!')
 
-    return render(request, 'shop/accessories.html')
+    login_form = AuthenticationForm
+
+    form = UserCreationForm()
+
+    return render(request, 'shop/accessories.html', {
+        'login_form': login_form,
+        'form': form
+    })
 
 # // -------------------
 # HOMEPAGE
 # // -------------------
 
 def educate(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+        # ok user created log them in
+            login(request, user)
+            return redirect('homepage')
+        else:
+            messages.success(request, 'Sign Up was successful, welcome!')
 
-    return render(request, 'about/educate.html')
+    login_form = AuthenticationForm
+
+    form = UserCreationForm()
+
+    return render(request, 'about/educate.html', {
+        'login_form': login_form,
+        'form': form,
+    })
 
 
 
 def team(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+        # ok user created log them in
+            login(request, user)
+            return redirect('homepage')
+        else:
+            messages.success(request, 'Sign Up was successful, welcome!')
 
-    return render(request, 'about/team.html')
+    login_form = AuthenticationForm
+
+    form = UserCreationForm()
+
+    return render(request, 'about/team.html', {
+        'login_form': login_form,
+        'form': form,
+    })
 
 def reclaim(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+        # ok user created log them in
+            login(request, user)
+            return redirect('homepage')
+        else:
+            messages.success(request, 'Sign Up was successful, welcome!')
 
-    return render(request, 'about/reclaim.html')
+    login_form = AuthenticationForm
+
+    form = UserCreationForm()
+    return render(request, 'about/reclaim.html', {
+        'login_form': login_form,
+        'form': form,
+    })
 
 
 def homepage(request):

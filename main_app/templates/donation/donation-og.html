@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-{% comment %} <style type="text/css">
+<style type="text/css">
     .aa {
         background-color: #393e46;
 
@@ -77,13 +77,13 @@
         background-color: black;
         opacity: 0.8;
     }
-</style> {% endcomment %}
+</style>
 
-<div class="donation-container">
 
-<script src="https://js.stripe.com/v3/"></script>
+<script class="aa" src="https://js.stripe.com/v3/"></script>
 
-    <div class="donation-box">
+<div class="boxy">
+    <div class="Donate">
         <form action="{%url 'charge' %}" method="post" id="payment-form">
             {% csrf_token %}
             <select required name="amount" id="amount">
@@ -95,9 +95,10 @@
                 <option value="100">Donate $100</option>
             </select>
             <input type="text" id="amount" name="name" placeholder="Name">
-            <br />
-            <div class="form-row" id="stripe-input">
+
+            <div class="form-row">
                 <label for="card-element">
+
                 </label>
                 <div id="card-element">
                 </div>
@@ -106,7 +107,7 @@
             <button class="donateBtn">Submit Donation</button>
         </form>
     </div>
-    <div class="donation-description">
+    <div class="whyDonate">
         <p> Here at HIDDEN we are proudly non-profit, non-corporate and non-compromised.We rely on our donations to
             carry out our mission of finding victims and those responsible. By donating, you are joining the fight to
             end human trafficking and contributing to a better tomorrow. Will you give today? </p>
